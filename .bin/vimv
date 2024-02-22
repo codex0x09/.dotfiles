@@ -1,0 +1,81 @@
+#!/bin/bash
+
+#    #TODO :
+#    how to rename your files/dirs in PWD via edit theme and :wq,
+#    as soon as write and quit vim, you changes will be apply to
+#    the real files/dirs namde !!
+#
+# senario 1:
+#    create file that cotains list files/dirs names,
+#    than piping thenm to vim
+#
+init_check_temp_dir(){
+    [[ -d ~/.bin/temp ]] || mkdir -p ~/.bin/temp
+}
+
+
+main(){
+    # calling init function
+    init_check_temp_dir
+    clear
+    # creat file hold list names, and pass it vim
+    ls > ~/.bin/temp/vimvOld
+    ls > ~/.bin/temp/vimvEdit && vim ~/.bin/temp/vimvEdit 2>/dev/null
+    if [[ $(wc -l ~/.bin/temp/vimvEdit|cut -d" " -f1 ) == $(wc -l ~/.bin/temp/vimvOld|cut -d" " -f1) ]]
+    then
+        # init/empty arrays/vars to avoid bugs/issues
+        vimvEditArrayOld=()
+        vimvEditArray=()
+        legth=0
+        old=""
+        new=""
+        while read -r old <&3 && read -r <&4 new;
+        do
+            # init arrays
+            vimvEditArrayOld[$legth]=$old
+            vimvEditArray[$legth]=$new
+            # renamings
+            mv "${vimvEditArrayOld[$legth]}" "${vimvEditArray[$legth]}" 2>/dev/null
+            ((legth++))
+        done 3<~/.bin/temp/vimvOld 4<~/.bin/temp/vimvEdit
+        # rmove vimvEdit and vimOld files from tree
+        [[ -a ~/.bin/temp/vimvEdit ]] && rm -f ~/.bin/temp/vimvEdit 2>/dev/null
+        [[ -a ~/.bin/temp/vimvOld ]] && rm -f ~/.bin/temp/vimvOld 2>/dev/null
+    else
+        printf  " \033[1;34m*****************************************\033[00m \n"
+        printf  " \033[1;2;31m >> Please don't -*- Delete Any Line -*- \033[00m\n"
+        printf  " \033[1;34m*****************************************\033[00m \n\n"
+        read -p " Do You Want Rename Again ? [Y/n]: " user_choice
+        case $user_choice in
+            "y" | "Y")
+                vimv ;;
+            "n" | "N")
+                [[ -a ~/.bin/temp/vimvEdit ]] && rm -f ~/.bin/temp/vimvEdit 2>/dev/null
+                [[ -a ~/.bin/temp/vimvOld ]] && rm -f ~/.bin/temp/vimvOld 2>/dev/null
+                return 0
+                ;;
+            *)
+                vimv
+        esac
+    fi
+}
+main
+
+worrings(){
+    cat << vim
+            ///////////////////////////
+           **-**      **-**       **-**
+           ----------------------------
+
+    Please only rename [files] or [dirs] name,
+    Don't delete an Entire line, keep the lines as they
+    and oly rename to avoid issues.  (>^.^<) .. Cody
+
+           ----------------------------
+           **-**      **-**       **-**
+           ///////////////////////////
+
+vim
+
+read -p "if your ready then press [Enter] <CR> to Edit ..."
+} # worrings

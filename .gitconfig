@@ -1,0 +1,25 @@
+# This is Git's per-user configuration file.
+[user]
+	name = codex-0x1
+	email = 121833227+codex0x09@users.noreply.github.com
+# Please adapt and uncomment the following lines:
+#	name =
+#	email = codex123@Codex.localdomain
+[core]
+	editor = vim
+[pull]
+	rebase = false
+	# rebase = --no-rebase || false  # merge (the default strategy)
+	# rebase = --rebase || true      # rebase
+	# ff = --ff-only || only         # fast-forward only
+
+	#For firing from  command line
+	#git config pull.rebase false  # merge (the default strategy)
+	#git config pull.rebase true   # rebase
+	#git config pull.ff only       # fast-forward only
+
+	#You can replace "git config" with "git config --global" to set a default
+	#preference for all repositories. You can also pass --rebase, --no-rebase,
+	#or --ff-only on the command line to override the configured default per
+	#invocation.
+

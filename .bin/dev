@@ -1,0 +1,13 @@
+#!/bin/bash
+
+#-----------------------------#
+#create session in background (-d)
+tmux new -s "Dev" -d
+tmux split-window -v -p 10
+tmux split-window -h -p 50
+#------------------------# select and run programs
+tmux select-pane -U
+# tmux send-keys -t "Test" 'sl;nvim' C-m -> target session name is optional -t "s-name"
+tmux send-keys -t "Dev" 'nvim' C-m
+
+tmux attach-session -d -t Dev

@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+for count_color in {0..255}; do    
+    
+    tput setaf $count_color
+    echo -n "$count_color "
+done
+tput sgr0
+echo

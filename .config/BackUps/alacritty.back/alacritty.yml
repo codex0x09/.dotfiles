@@ -1,0 +1,75 @@
+window:
+    opacity: 0.92 #0.97 0.85
+    padding:
+      x: 0
+      y: 0
+dynamic_padding: true
+
+dynamic_title:  false
+title: Alacritty
+
+#dark_pastels.yaml
+  #ubuntu.yaml #xterm.yaml
+  #thelovelace.yaml
+  #everforest_dark.yaml
+  #solarized_dark.yaml
+  #xterm.yaml
+  #monokai_git.yaml  tokyo-night.yaml  cyber_punk_neon
+import:
+   - C:\Users\Unix-root\AppData\Roaming\alacritty\themes\themes\xterm_codex.yaml
+
+    # C:\WINDOWS\system32\wsl
+
+shell:
+  program: E:\SystemDirectory\Distros_Master\Debian-GNULinux\debian.exe
+    #args:
+    #- --cd
+  working_directory: None
+
+colors:
+  primary:
+    background: "#05050a" #"#151515" 
+    foreground: "#16c60c" #"#009900"  # "#00c800"  # UseThis "#16c60c" "#0c960c"
+        #foreground: "#108205"
+  #cursor:
+    #cursor: "#b00000"
+    #text: '#000205'
+    #style:
+    #shape: Block
+    #binking: On
+
+
+font:
+ normal:
+   family: "JetBrainsMono NF"
+   style: Medium
+
+ bold:
+   family: "JetBrainsMono NF"
+   style: Bold
+
+ italic:
+   family: "JetBrainsMono NF"
+   style: Italic
+
+ bold_italic:
+   family: "JetBrainsMono NF"
+   style: Bold Italic
+
+ size: 9
+
+startup_mode: Windowed
+ # Values for {startup_mode}:
+ #   - Windowd
+ #   - Maximized
+ #   - Fullscreen
+
+draw_bold_text_with_bright_colors: true
+
+live_config_reload: true
+
+ #scrolling:
+ #  history: 10000
+ #  multiplier: 10
+
+

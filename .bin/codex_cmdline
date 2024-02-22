@@ -1,0 +1,319 @@
+#!/bin/bash
+
+# Schemes {{{
+# Author : Codex `(>^.^<)`... use vim
+#
+# Hint : don't use this program, untill I release it
+#        you can use it or benifit from it if you know bashScript
+#        to avoid any problem may happen to your system from this prog.
+#
+# make menue to offer serveces
+#1.installed list >>>>>>>>>>>>>>>>>>>>>>>>>> [done]
+#  -> list (released,bin)
+#2.search in installed >>>>>>>>>>>>>>>>>>>>>>>>>> [done]
+#	-> it exist in (released, bin)
+#
+#               1.uninstall-release
+#               2.uninstall-bin
+#               3.uninstall-both
+#     3.uninstall
+#         -> please enter desired file name :
+#-> let user choose
+# }}}
+
+## Helper Functions {{{
+
+install_cmdline(){
+	clear
+	cp -vui ~/BashScrip/tmuxScripts/Release/* ~/bin/
+	read -p "Done!! [Enter]"
+	list_installed
+	read "press [Enter] to go back to main menu..."
+	void_main
+}
+
+Exit_function(){
+	clear
+	local vt="\n\v\v\t"
+	echo -e "$vt###############<<--################"
+	echo -e "\t*Thank you for using Codex-cmdline*"
+	echo -e "\t#############-->>##################"
+	sleep 1;
+	clear
+	return 0
+}
+erro_message(){ # taking an arg
+	clear
+	echo -e "\v\v\v\t\t   ***********************************************"
+	echo -e "\v\v\v\t\t *** The -> $1 <- is invalid choice, try again!! ***"
+	echo -e "\v\v\v\t\t   ***********************************************"
+	sleep 1.5
+}
+back_to_main_menue(){
+	void_main
+}
+
+back_to_list_menue(){
+	list_installed
+}
+
+back_to_list_main_menue(){
+	local get_back
+	read -p "press [Enter] to go back, [0] to main menue: " get_back;
+	if [ $get_back -eq 0 ]
+	then
+		back_to_main_menue
+	else
+		back_to_list_menue
+	fi
+}
+list_both(){
+	echo "~/bin/ #############################################>>>"
+	ls ~/bin/. |grep  --color=auto . ;
+	echo "~/BashScrip/tmuxScripts/Release/ ###################>>>"
+	ls ~/BashScrip/tmuxScripts/Release/. |grep --color=auto . ;
+	echo "*******************************************************"
+}
+list_bin(){
+	echo "~/bin/ #############################################>>>"
+	ls ~/bin/. |grep --color=auto . ;
+	echo "*******************************************************"
+}
+list_release(){
+	echo "~/BashScrip/tmuxScripts/Release/ ###################>>>"
+	ls ~/BashScrip/tmuxScripts/Release/. |grep --color=auto . ;
+	echo "*******************************************************"
+}
+
+remove_bin(){
+	local remove_cmd
+	local make_sure=n
+	read -p "type a cmd-line to uninstall, type:Exit to exit >> " remove_cmd;
+	if [ "$remove_cmd" == "exit" ] || [ "$remove_cmd" == "Exit" ]
+	then
+		uninstall_cmdline
+	fi
+	read -p "Are your sure to remove!!? (n/y): " make_sure;
+
+	if [ "$make_sure" == "y" ] || [ "$make_sure" == "Y" ]
+	then
+		if [ -e ~/bin/$remove_cmd ]
+		then
+			rm -i ~/bin/$remove_cmd;
+			clear
+			list_bin
+			remove_bin
+		else
+			echo "The command you've typed not exist, or misspell !!"
+		fi
+	else
+		echo "Good, Choice!!"
+	fi
+	read -p "press [Enter] to continue..."
+	uninstall_cmdline
+}
+remove_release(){
+	local remove_cmd
+	local make_sure=n
+	read -p "type a cmd-line to uninstall, type:Exit to exit >> " remove_cmd;
+	if [ "$remove_cmd" == "exit" ] || [ "$remove_cmd" == "Exit" ]
+	then
+		uninstall_cmdline
+	fi
+	read -p "Are your sure to remove!!? (n/y): " make_sure;
+
+	if [ "$make_sure" == "y" ] || [ "$make_sure" == "Y" ]
+	then
+		if [ -e ~/BashScrip/tmuxScripts/Release/$remove_cmd ]
+		then
+			rm -i ~/BashScrip/tmuxScripts/Release/$remove_cmd
+			clear
+			list_release
+			remove_release
+		else
+			echo "The command you've typed not exist, or misspell !!"
+		fi
+	else
+		echo "Good, Choice!!"
+	fi
+	read -p "press [Enter] to continue..."
+	uninstall_cmdline
+}
+remove_both(){
+	local remove_cmd
+	local make_sure=n
+	read -p "type a cmd-line to uninstall, type:Exit to exit >> " remove_cmd;
+	if [ "$remove_cmd" == "exit" ] || [ "$remove_cmd" == "Exit" ]
+	then
+		uninstall_cmdline
+	fi
+	read -p "Are your sure to remove!!? (n/y): " make_sure;
+
+	if [ "$make_sure" == "y" ] || [ "$make_sure" == "Y" ]
+	then
+		if [ -e ~/bin/$remove_cmd ] && [ -e ~/BashScrip/tmuxScripts/Release/$remove_cmd ]
+		then
+			rm -i ~/bin/$remove_cmd;
+			rm -i ~/BashScrip/tmuxScripts/Release/$remove_cmd
+			#Recursioning
+			clear
+			list_both
+			remove_both
+		elif [ -e ~/bin/$remove_cmd ]
+		then
+			rm -i ~/bin/$remove_cmd
+		elif [ -e ~/BashScrip/tmuxScripts/Release/$remove_cmd ]
+		then
+			rm -i ~/BashScrip/tmuxScripts/Release/$remove_cmd
+		fi
+	else
+		echo "Good, Choice!!"
+	fi
+	read -p "press [Enter] to continue..."
+	uninstall_cmdline
+}
+
+
+# }}}
+
+## Search Function {{{
+
+search(){
+	clear
+
+	echo -e "\t############################"
+	echo -e "\t#######>>> Search <<<#######"
+	echo -e "\t############################\n"
+
+	local user_search
+	read -p "(*)Type codex-cmd to search, [.] list all, [0] Back << : " user_search;
+	echo -e "\n###>>>###>>> The Existing Codex-cmdline >>>###>>>###\n"
+
+	if [ $user_search -eq 0 ]
+	then
+		void_main
+	else
+		echo "~/bin/ --------------------------------------------->>>"
+		ls ~/bin | grep --color=auto $user_search;
+		echo "~/BashScrip/tmuxScripts/Release/ ------------------->>>"
+		ls ~/BashScrip/tmuxScripts/Release/ | grep --color=auto $user_search;
+		echo "}-----------------------><----------------------------{"
+
+		local user_cmd="null"
+		read -p "[0] to insert Cmdline,[Enter] to go main menue: " user_cmd;
+		if [ $user_cmd -eq 0 ]
+		then
+			until [ $user_cmd == "codex" ]  #looping user cmdline
+			do
+				read -p "[type:codex@toExit]$ " user_cmd;
+				if [ $user_cmd == 'codex' ]
+				then
+					search
+				else
+					$user_cmd
+				fi
+			done
+		else
+			back_to_main_menue
+		fi
+	fi
+}
+
+# }}}
+
+## List Installed Function {{{
+
+list_installed() {
+	clear
+	echo "#######-->>#######"
+	echo "[A] Static List  #"
+	echo "[B] Dynamic List #"
+	echo "[C] Go Back      #"
+	echo "#######<<--#######"
+	local list_choice
+	read -p "your choice >> " list_choice;
+	case $list_choice in
+		a|A)
+			clear
+			tree ~/bin/ ~/BashScrip/tmuxScripts/Release/ ;
+			back_to_list_main_menue
+			;;
+		b|B)
+			tree ~/bin/ ~/BashScrip/tmuxScripts/Release/ | less;
+			back_to_list_main_menue
+			;;
+		c|C) void_main ;;
+		*)
+			erro_message $list_choice
+			list_installed
+			;;
+	esac
+}
+
+# }}}
+
+## Uninstall Function {{{
+
+uninstall_cmdline(){
+	clear
+
+	echo -e "\t##################################"
+	echo -e "\t#######>>> Uninstalling <<<#######"
+	echo -e "\t##################################\n"
+	echo -e "\t##################################"
+	echo -e "\t[A] Uninstalling from -> ~/bin/  #"
+	echo -e "\t[B] Uninstalling from -> Release #"
+	echo -e "\t[C] Uninstalling from -> Both    #"
+	echo -e "\t[D] Back to main menue!          #"
+	echo -e "\t##################################"
+	local user_choice
+	read -p "Enter your choice: " user_choice;
+	case $user_choice in
+		a|A)
+			clear
+			list_bin
+			remove_bin
+			;;
+		b|B)
+			remove_release
+			;;
+		c|C)
+			remove_both
+			;;
+		d|D)
+			back_to_main_menue
+			;;
+		*)
+			erro_message $user_choice
+			uninstall_cmdline
+			;;
+	esac
+}
+# }}}
+
+## main Function {{{
+
+void_main() {
+	clear
+	echo "###############<<--################"
+	echo "[1] Show Installed Codex-Cmdlines #"
+	echo "[2] Search In Installed List      #"
+	echo "[3] Install Codex-Cmdline         #"
+	echo "[4] Uninstall Codex-Cmdline       #"
+	echo "[5] Exit                          #"
+	echo "#############-->>##################"
+	read -p "Enter your choice >> " user_choice;
+	case $user_choice in
+		1) list_installed ;;
+		2) search ;;
+		3) install_cmdline ;;
+		4) uninstall_cmdline ;;
+		5) Exit_function ;;
+		*)
+			erro_message $user_choice
+			void_main
+	esac
+}
+void_main
+
+# }}}

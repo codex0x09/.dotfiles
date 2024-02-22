@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+breakme=0
+
+for count_color in {0..255}; do    
+    tput setaf $count_color
+    echo -n " $count_color "
+    if (($breakme == 17))
+    then
+        echo -e "\n"
+        let breakme=0
+    fi; ((breakme ++))
+
+done
+tput sgr0
+echo

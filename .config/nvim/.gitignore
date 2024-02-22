@@ -1,0 +1,3 @@
+#Ignore Dirs
+awesome-vim-colorschemes/
+plugin/packer_compiled.lua

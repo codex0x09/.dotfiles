@@ -1,0 +1,39 @@
+# Allman brackets style
+--style=allman
+
+# 4 spaces indentation
+--indent=spaces
+-s4
+
+# Convert Tabs into Spaces
+#--convert-tabs
+
+# Entire class block is indented [C++]
+--indent-classes
+
+# Entire switch-case block is indented
+--indent-switches
+
+# Indent the Cases (this for deep detailes){but, switch-case it's ok}
+#--indent-cases
+
+# Indent multi-line defines
+#--indent-preproc-define
+
+# Indent comments to corresponding indentation level
+--indent-col1-comments
+
+# Space padding around operators
+--pad-oper
+
+# Remove paren internal padding -----> { Check it out !}
+--unpad-paren
+
+# Align poiters operators; to variable name use: name
+--align-pointer=type
+
+# One line conditional statement has brackets
+--add-brackets
+
+# Max code length is 80 charcters
+--max-code-length=80
