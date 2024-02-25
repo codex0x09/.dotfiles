@@ -1,3 +1,55 @@
+################
+## Git Prompt ##
+################ ##### ##
+#source ~/.git-prompt.sh#
+## ################### ##
+# -------------Adding Git Branch To Bash Prompt
+
+git_prompt()
+{
+	local branch="$(git symbolic-ref HEAD 2> /dev/null | cut -d'/' -f3)"
+	local branch_truncated="${branch:0:30}"
+	if (( ${#branch} > ${#branch_truncated} )); then
+		branch="${branch_truncated}..."
+	fi
+	[ -n "${branch}" ] && printf "\[\033[1;2;91m\]:(${branch})\[\033[00m\]"
+}
+
+#TODO: see Bash wiki (arch wiki very helpful) , seach in the page for 'Right-justified text'
+# see also in bash wiki the stackoverflow I guess what I'm looking for is live there ;)
+# I'v turned every thing into function, but bash can't calc string lenght </3
+# if I use \[---\] lengh will be ignore cool, but it works only in ps1 itself not in function and this is the issue
+
+arrow(){
+	printf "\[\033[01;31m\]\[\033[00m\]"
+}
+
+diagnostic(){
+	local last_state=$?
+	case $last_state in
+		0) printf "\[\033[32m\] \[\033[00m\][\[\033[00m\]\[\033[38;5;214m\]$last_state\[\033[00m\]]" ;;
+		1) printf "\[\033[31m\] \[\033[00m\][\[\033[00m\]\[\033[38;5;214m\]$last_state\[\033[00m\]]" ;;
+		*) printf "\[\033[38;5;208m\] \[\033[00m\][\[\033[38;5;214m\]$last_state\[\033[00m\]]";;
+	esac
+}
+print_dir(){
+    printf "\[\033[01;34m\]\W\[\033[m\]"
+}
+end(){
+	printf "\[\033[1;37m\]$\[\033[m\]"
+}
+
+#it works well!!
+codexPs(){
+	PS1="$(diagnostic)"
+	PS1+=" $(arrow)"
+	PS1+=" $(print_dir)"
+	PS1+="$(git_prompt)"
+	PS1+=" $(end) "
+}
+PROMPT_COMMAND=codexPs  #the PS1
+######################################################################################################################
+#
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
@@ -57,90 +109,6 @@ shopt -s checkwinsize
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
-
-################
-## Git Prompt ##
-################ ##### ##
-#source ~/.git-prompt.sh#
-## ################### ##
-# -------------Adding Git Branch To Bash Prompt
-
-git_prompt()
-{
-	local branch="$(git symbolic-ref HEAD 2> /dev/null | cut -d'/' -f3)"
-	local branch_truncated="${branch:0:30}"
-	if (( ${#branch} > ${#branch_truncated} )); then
-		branch="${branch_truncated}..."
-	fi
-	[ -n "${branch}" ] && printf "\[\033[38;5;203m\]:(${branch})\[\033[00m\]"
-}
-
-#TODO: see Bash wiki (arch wiki very helpful) , seach in the page for 'Right-justified text'
-# see also in bash wiki the stackoverflow I guess what I'm looking for is live there ;)
-# I'v turned every thing into function, but bash can't calc string lenght </3
-# if I use \[---\] lengh will be ignore cool, but it works only in ps1 itself not in function and this is the issue
-
-arrow(){
-	printf "\[\033[01;31m\]\[\033[00m\]"
-}
-
-diagnostic(){
-	local last_state=$?
-	case $last_state in
-		0) printf "\[\033[32m\] \[\033[00m\][\[\033[00m\]\[\033[38;5;214m\]$last_state\[\033[00m\]]" ;;
-		1) printf "\[\033[31m\] \[\033[00m\][\[\033[00m\]\[\033[38;5;214m\]$last_state\[\033[00m\]]" ;;
-		*) printf "\[\033[38;5;208m\] \[\033[00m\][\[\033[38;5;214m\]$last_state\[\033[00m\]]";;
-	esac
-}
-print_dir(){
-    printf "\[\033[01;34m\]\W\[\033[m\]"
-}
-end(){
-	printf "\[\033[1;37m\]$\[\033[m\]"
-}
-
-#it works well!!
-codexPs(){
-	PS1="$(diagnostic)"
-	PS1+=" $(arrow)"
-	PS1+=" $(print_dir)"
-	PS1+="$(git_prompt)"
-	PS1+=" $(end) "
-}
-PROMPT_COMMAND=codexPs  #the PS1
-######################################################################################################################
-
-#{{{ ---------------------------------------------------------------------
-<<vim
-
-bsd_dots(){
-	printf "\e[38;5;160m \e[38;5;208m  \e[38;5;22m  \e[00m"
-}
-
-PS1='$(diagnostic)\[\e[1;31m\][\[\033[01;32m\]\u\[\033[00m\]\[\033[01;34m\]@\[\033[00m\]\[\033[01;32m\]\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\]\[\e[1;31m\]]\[\e[m$(git_prompt)$ '
-
-red-------> \[\e[1;31m\]
-green-----> \[\e[01;32m\]
-yellow----> \[\e[01;33m\]
-blue------> \[\e[01;34m\]
-purple----> \[\e[01;35m\]
-cyan------> \[\e[01;36m\]
-gray------> \[\e[0;37m\]
-creamy----> \[\e[38;5;214m\]
-reset=----> \[\e[m\]
-
-PS1='\[\e[01;34m\][\[\e[38;5;214m\]$(diagnostic)\[\e[01;34m\]]\[\e[1;31m\]Magaman\[\e[01;34m\][\[\e[1;37m\]\W\[\e[01;34m\]]\[\e[38;5;214m\]$(git_prompt)\[\e[m\]\[\e[01;37m\]$\[\e[m\] '
-
-# Activing this function before PS1 give you a line befor it, you can rename the function nothing is matter
-# you get the idea
-function title() {
-	#PROMPT_COMMAND="echo -e \"\033[0;$1 (on $HOSTNAME)\007\"";
-	echo -e \"\033[0;$1 (on $HOSTNAME)\007\"
-} title codex
-
-vim
-#}}} ---------------------------------------------------------------------
-
 # colored GCC warnings and errors
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
@@ -161,3 +129,30 @@ export LESS_TERMCAP_se=$'\E[0m'                    # reset reverse video     #
 export LESS_TERMCAP_us=$'\E[1;91m'                 # begin underline         #
 export LESS_TERMCAP_ue=$'\E[0m'                    # reset underline         #
 ##############################################################################
+#
+#{{{ ---------------------------------------------------------------------
+#bsd_dots(){
+#	printf "\e[38;5;160m \e[38;5;208m  \e[38;5;22m  \e[00m"
+#}
+#
+#PS1='$(diagnostic)\[\e[1;31m\][\[\033[01;32m\]\u\[\033[00m\]\[\033[01;34m\]@\[\033[00m\]\[\033[01;32m\]\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\]\[\e[1;31m\]]\[\e[m$(git_prompt)$ '
+#
+#red-------> \[\e[1;31m\]
+#green-----> \[\e[01;32m\]
+#yellow----> \[\e[01;33m\]
+#blue------> \[\e[01;34m\]
+#purple----> \[\e[01;35m\]
+#cyan------> \[\e[01;36m\]
+#gray------> \[\e[0;37m\]
+#creamy----> \[\e[38;5;214m\]
+#reset=----> \[\e[m\]
+#
+#PS1='\[\e[01;34m\][\[\e[38;5;214m\]$(diagnostic)\[\e[01;34m\]]\[\e[1;31m\]Magaman\[\e[01;34m\][\[\e[1;37m\]\W\[\e[01;34m\]]\[\e[38;5;214m\]$(git_prompt)\[\e[m\]\[\e[01;37m\]$\[\e[m\] '
+#
+## Activing this function before PS1 give you a line befor it, you can rename the function nothing is matter
+## you get the idea
+#function title() {
+#	#PROMPT_COMMAND="echo -e \"\033[0;$1 (on $HOSTNAME)\007\"";
+#	echo -e \"\033[0;$1 (on $HOSTNAME)\007\"
+#} title codex
+#}}} ---------------------------------------------------------------------
