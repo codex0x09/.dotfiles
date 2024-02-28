@@ -43,7 +43,7 @@ FILE_EXTENSION_LOWER="$(printf "%s" "${FILE_EXTENSION}" | tr '[:upper:]' '[:lowe
 HIGHLIGHT_SIZE_MAX=262143  # 256KiB
 HIGHLIGHT_TABWIDTH=${HIGHLIGHT_TABWIDTH:-8}
 HIGHLIGHT_STYLE=${HIGHLIGHT_STYLE:-pablo}
-HIGHLIGHT_OPTIONS="--replace-tabs=${HIGHLIGHT_TABWIDTH} --style=${HIGHLIGHT_STYLE} ${HIGHLIGHT_OPTIONS:-}"
+HIGHLIGHT_OPTIONS="--replace-tabs=${HIGHLIGHT_TABWIDTH} --line-number --style=${HIGHLIGHT_STYLE} ${HIGHLIGHT_OPTIONS:-}"
 PYGMENTIZE_STYLE=${PYGMENTIZE_STYLE:-autumn}
 OPENSCAD_IMGSIZE=${RNGR_OPENSCAD_IMGSIZE:-1000,1000}
 OPENSCAD_COLORSCHEME=${RNGR_OPENSCAD_COLORSCHEME:-Tomorrow Night}
@@ -266,6 +266,13 @@ handle_image() {
 handle_mime() {
     local mimetype="${1}"
     case "${mimetype}" in
+
+#        *.cpp | *.c | *.hpp | *.cxx)
+#            #highlight  --style=${HIGHLIGHT_STYLE} 
+#            batcat  --style="full" --color="always" --theme="Monokai Extended"  \
+#                --${FILE_PATH} && exit 5
+#                            ;;
+#
         ## RTF and DOC
         text/rtf|*msword)
             ## Preview as text conversion
@@ -297,22 +304,22 @@ handle_mime() {
                 exit 2
             fi
             if [[ "$( tput colors )" -ge 256 ]]; then
-                local pygmentize_format='terminal256'
-                #local highlight_format='xterm256'
+               # local pygmentize_format='terminal256'
+                local highlight_format='xterm'
                 # setting highlight_format to 'ansi' to correct the color
                 # but we should install 'highlight' first "apt install highlight"
-                local highlight_format='ansi'
+               # local highlight_format='ansi'
             else
-                local pygmentize_format='terminal'
+               # local pygmentize_format='terminal'
                 local highlight_format='ansi'
             fi
-            env HIGHLIGHT_OPTIONS="${HIGHLIGHT_OPTIONS}" highlight \
-                --out-format="${highlight_format}" \
-                --force -- "${FILE_PATH}" && exit 5
-            env COLORTERM=8bit bat --color=always --style="plain" \
+            highlight  HIGHLIGHT_OPTIONS="${HIGHLIGHT_OPTIONS}"  -- "${FILE_PATH}" \
+                && exit 5
+            #
+            env COLORTERM=8bit batcat -n --color=always --style="plain" \
                 -- "${FILE_PATH}" && exit 5
-            pygmentize -f "${pygmentize_format}" -O "style=${PYGMENTIZE_STYLE}"\
-                -- "${FILE_PATH}" && exit 5
+            #pygmentize -f "${pygmentize_format}" -O "style=${PYGMENTIZE_STYLE}"\
+            #    -- "${FILE_PATH}" && exit 5
             exit 2;;
 
         ## DjVu
