@@ -70,7 +70,6 @@ lspconfig.emmet_ls.setup({
 
 
 
---[
 --intelephense setup working verywell only by using lines with --*--
 --local lspconfig = require "lspconfig" -- lspconfig is defined above at line 53
 local util = require "lspconfig/util"
