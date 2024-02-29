@@ -21,18 +21,23 @@ runtime! ftplugin/man.vim
 "{{{ Themes :------------------------------JK
 "********* for -->Tokyo-nihgt *************
 "<<--
-let g:airline_theme = "purify"
-"-->>
-color tokyonight "retrobox "codedark "miramare "srcery
+let g:airline_theme = "dark" 
+"-->>"purify"
+"color tokyonight "retrobox "codedark "miramare "srcery
 "
 " for Xterm color
 hi! Comment cterm=none
 hi! Normal ctermbg=None
 hi! Terminal ctermbg=None
-hi! LineNr ctermfg=30 "23
+hi! LineNr ctermfg=30 " 23
 hi! EndOfBuffer ctermbg=None
 hi! cursorline cterm=none ctermbg=233  "17 "236
 hi! cursorlineNr cterm=bold ctermfg=30 ctermbg=234 "235 "233  "17 "236
+
+hi! Normal ctermfg=255
+hi! Visual cterm=none ctermbg=202 ctermfg=232
+hi! link Search Visual
+hi! CursorLine cterm=none ctermbg=233"'
 "
 "hi! Comment cterm=bold  "doesn't work well with tmux !? even 'italic'.
 "
