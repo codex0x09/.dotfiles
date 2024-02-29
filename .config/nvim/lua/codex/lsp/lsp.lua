@@ -69,6 +69,8 @@ lspconfig.emmet_ls.setup({
 })
 
 
+
+--[
 --intelephense setup working verywell only by using lines with --*--
 --local lspconfig = require "lspconfig" -- lspconfig is defined above at line 53
 local util = require "lspconfig/util"
@@ -77,6 +79,12 @@ lspconfig.intelephense.setup {
   FileType = { "php", "phpdoc" },
   root_dir = util.root_pattern { "/home/codeman/", "*.php" }
 }
+
+lspconfig.clangd.setup({
+    -- on_attach = on_attach,
+    capabilities = capabilities,
+    filetypes = {  'c', 'cpp', 'objc', 'objcpp', 'cuda', 'proto' },
+})
 
 
 --Enable (broadcasting) snippet capability for completion
