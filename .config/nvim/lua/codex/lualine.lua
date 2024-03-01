@@ -36,7 +36,7 @@ require('lualine').setup({
     lualine_z = {}
   },
    tabline = { -- work also for bufferline just uncomment them
-       lualine_a = {'buffer_number','filetype','buffers'},--filename
+       lualine_a = {'buffer_number','buffers','filetype'},--filename
        lualine_b = {'diagnostics'},  --lualine_b = {'branch'},
        lualine_c = {},  --lualine_c = {'filename'},
        lualine_x = {},
