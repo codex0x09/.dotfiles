@@ -10,6 +10,7 @@ vim.opt.hlsearch = true				-- hilghlight all matches on previous search pattern
 vim.opt.ignorecase = true			-- ignore case in search patterns
 -- vim.opt.mouse = "a"				-- allow the mouse to be used in neovim
 vim.opt.pumheight = 18				-- pop up menu height {default 0 (which max window)}
+vim.opt.pumblend = 15		      -- it will make any foalt ro pop up menu Transparent (*6*)
 vim.opt.showmode = false			-- we don't need to see things like -- INSERT -- anymore
 vim.opt.showtabline = 2				-- always show tabs
 vim.opt.smartcase = true			-- smart case
