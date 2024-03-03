@@ -1,10 +1,10 @@
-local servers = {
-  --  "lua_ls",
-  --	"pyright",
-  --	"jsonls",
-}
-
-local settings = {
+---------------------------------** Hits: **----------------------------------------------
+-- this file contens configrations of three Plug-ins working together
+-- Mason.nvim (used for installing lsps and third part binarys),
+-- Mashn-lspconfig.nvim (used for automatically config any server installed by Mason), and
+-- Mason-tool-installer.nvim (used for ensure installed certain server hard coded by user)
+------------------------------------------------------------------------------------------
+require("mason").setup({ -- should be first
   ui = {
     border = "none",
     icons = {
@@ -31,37 +31,30 @@ local settings = {
       cancel_installation = "<C-c>",
       -- Keymap to apply language filter
       apply_language_filter = "<C-f>",
+      toggle_help = "g?",
     },
   },
   log_level = vim.log.levels.INFO,
   max_concurrent_installers = 4,
-}
-
-require("mason").setup(settings)
-require("mason-lspconfig").setup({
-  ensure_installed = servers,
-  automatic_installation = true,
 })
-
-local lspconfig_status_ok, lspconfig = pcall(require, "lspconfig")
-if not lspconfig_status_ok then
-  return
-end
-
-local opts = {}
-
-for _, server in pairs(servers) do
-  opts = {
-    on_attach = require("user.lsp.handlers").on_attach,
-    capabilities = require("user.lsp.handlers").capabilities,
-  }
-
-  server = vim.split(server, "@")[1]
-
-  local require_ok, conf_opts = pcall(require, "user.lsp.settings." .. server)
-  if require_ok then
-    opts = vim.tbl_deep_extend("force", conf_opts, opts)
+require("mason-lspconfig").setup()
+require("mason-lspconfig").setup_handlers({
+  function(server_name)
+    require("lspconfig")[server_name].setup {}
   end
-
-  lspconfig[server].setup(opts)
-end
+})
+require("mason-tool-installer").setup({
+  -- a list of all tools you want to ensure are installed upon start
+  ensure_installed = {
+    "lua-language-server",
+    "vim-language-server",
+    "clang-format",
+    "clangd",
+    "pyright",
+    "jsonls",
+    "emmet-ls",
+    "prettierd",
+  },
+  run_on_start = true, -- automatically install / update on startup
+  start_delay = 3000, -- set delay before the installation
+})
