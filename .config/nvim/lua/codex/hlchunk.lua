@@ -37,7 +37,7 @@ require("hlchunk").setup({
 --]]
 
   line_num = {
-    enable = true,
+    enable = false,
     use_treesitter = false,
     style = "#cc7000", -- For Gruvbox vimy
   --[[

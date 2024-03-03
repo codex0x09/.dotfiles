@@ -17,6 +17,7 @@ alias vi='vim -c "color default|\
 ## Tmux  ##
 ###########
 #
+alias tmux='tmux -u'
 #alias ide='tmux new -s "IDE" nvim'
 #
 #################
