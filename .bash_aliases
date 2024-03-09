@@ -46,7 +46,7 @@ alias graphl='git log --decorate --graph --all '
 #####################
 alias megaman='echo -e "-*- \e[1;31mMegaman\e[0m -*- is: \e[01;32m$USER\e[01;34m@\e[01;32m$HOSTNAME"'
 
-alias synchome='sudo cp -rfuv /home/ /mnt/e/_BackUps/Debian_Home.bac'
+#alias synchome='sudo cp -rfuv /home/ /mnt/e/_BackUps/Debian_Home.bac'
 #sleep 1 && echo -e "\n\n\n\t-*- \e[1;2;4;31mDone\e[00m -*-"'
 
 #
