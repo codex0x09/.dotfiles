@@ -26,7 +26,7 @@ command_MODE = "c"
 --[[##########   -- NORMAL MODE  --    #############]]
 
 --[[##########  -- Man Page --    #############]]
-keymap("n", "<leader>m", ":Man ", opts) -- its parameter is ~/.astylerc (sourced)
+keymap("n", "<leader>m", ":Man ", {}) -- its parameter is ~/.astylerc (sourced)
 
 
 --[[##########  -- Astyle --    #############]]
@@ -39,10 +39,14 @@ keymap("n", "<leader>p", "mp<Cmd>silent %!prettier --stdin-filepath %<CR>'p", op
 --[[##########  -- Lsp Zero Format --    #############]]
 keymap("n", "<leader>z", "<Cmd>LspZeroFormat<CR>", opts) -- takes arguments only
 
-
 --[[##########  -- Lsp Code Action  --    #############]]
 keymap("n", "gh", "<Cmd>lua vim.lsp.buf.code_action()<CR>", opts) -- takes arguments only
 
+--[[##########  -- Open All Lsp Operations --    #############]]
+keymap("n", "gl", ":lua vim.lsp.buf", {}) -- replace 'opts'with'{}' to show the command
+
+--[[##########  -- Open Nvim-Tree --    #############]]
+keymap("n", "<leader>e", "<Cmd>NvimTreeToggle<CR>", opts)
 
 --[[##########  -- Open Config Tree --    #############]]
 keymap("n", "<leader>'", "<Cmd>sp|resize 10|e ~/.config/nvim/lua<CR>", opts)
@@ -112,13 +116,12 @@ keymap("n", "<S-TAB>", "<Cmd>bprevious<CR>", opts)
 --keymap("n", "<S-h>", "<Cmd>bprevious<CR>", opts)
 --keymap("n", "<S-l>", "<Cmd>bnext<CR>", opts)
 -- List All Buffers and Able Navigate
-keymap("n", "<leader>l", ":ls<CR>:b", opts)
+---@_set_opt_to_"{}"_display_the_:b_cmd
+keymap("n", "<leader>l", ":ls<CR>:b", {})
 -- Close Buffers
 --keymap("n", "<S-h>", "<Cmd>BufferLineCloseLeft<CR>", opts)
 --keymap("n", "<S-l>", "<Cmd>BufferLineCloseRight<CR>", opts)
 
--- Basic flie explorer    :Lex for short
-keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
 -- Open terminal in split
 keymap("n", "<leader>t", ":botright sp|resize 10|set nu! rnu!|terminal<CR>", opts)
 
@@ -167,7 +170,7 @@ keymap("x", "<A-k>", ":move '<-2<CR>gv-gv'", opts)
 
 --[[##########  -- Terminal MODE --    #############]]
 -- Escap form the termial easly
-keymap("t", "jk", "<C-\\><C-n>", opts)
+keymap("t", "fj", "<C-\\><C-n>", opts)
 
 -- Bertter terminal mavigation
 keymap("t", "<C-h>", "<C-\\><C-n><C-w>h", opts)

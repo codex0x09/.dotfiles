@@ -48,9 +48,9 @@ local gruvbox = {
   },
 }
 
-
   --green        = '#60bb26',
 --[[ Legacy Vim Theme ]]
+--[[
 local elfo_colors = {
   black        = '#181818',
   white        = '#f5deb3',
@@ -128,14 +128,14 @@ local bubbles_theme = {
     c = { fg = colors.black, bg = colors.black },
   },
 }
-
+--]]
 --[[===================================    CONFIGRATIONS    ===================================]]--
 require('lualine').setup({
   options = {
-    icons_enabled = true,
     theme = gruvbox,
-    section_separators = { left = ' ', right = ' ' },    -- { left = '', right = ''}, { left = '', right = '' }
-    component_separators = { left = '|', right = '|' },  -- { left = '', right = ''},
+    icons_enabled = true,
+    section_separators = { left = '', right = '' },    -- { left = '', right = ''}, { left = '', right = '' }
+    component_separators = { left = '▎', right = '▎' },  -- { left = '', right = ''},
     disabled_filetypes = {
       statusline = {},
       winbar = {},
@@ -166,19 +166,3 @@ require('lualine').setup({
     lualine_z = {}
   },
 })
---[[
-   tabline = { -- work also for bufferline just uncomment them
-       lualine_a = {'buffer_number','buffers','filetype'},--filename
-       lualine_b = {'diagnostics'},  --lualine_b = {'branch'},
-       lualine_c = {},  --lualine_c = {'filename'},
-       lualine_x = {},
-       lualine_y = {},
-       lualine_z = {'tabs'}
-   },
-  --]]
---[[
-tabline = {},
-  winbar = {},
-  inactive_winbar = {},
-  extensions = {}
-  --]]

@@ -121,6 +121,7 @@ source ~/.bash_aliases
 ##############################################################################
 #                      ###// Coloring Less ###//                             #
 ##############################################################################
+export LESS_TERMCAP_AF=$'\E[1;92m'                 # normal text             #
 export LESS_TERMCAP_mb=$'\E[1;93m'                 # begin blink             #
 export LESS_TERMCAP_md=$'\E[1;36m'                 # begin bold              #
 export LESS_TERMCAP_me=$'\E[0m'                    # reset bold/blink        #

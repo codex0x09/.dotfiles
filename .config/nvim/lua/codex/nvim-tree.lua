@@ -5,7 +5,12 @@
 	-- set termguicolors to enable highlight groups
 	vim.opt.termguicolors = true
 	--##########New###############
-require("nvim-tree").setup({ -- BEGIN_DEFAULT_OPTS
+  local ok, nvim_tree = pcall(require, "nvim-tree")
+  if not ok then
+    print("nvim-tree.lua: Cody you haven't nvim-tree installed!!")
+    return
+  end
+nvim_tree.setup({ -- BEGIN_DEFAULT_OPTS
     auto_reload_on_write = true,
     disable_netrw = true,
     hijack_cursor = false,
@@ -24,7 +29,7 @@ require("nvim-tree").setup({ -- BEGIN_DEFAULT_OPTS
         centralize_selection = true,
         cursorline = true,
         debounce_delay = 15,
-        width = 30,
+        width = 40,
         --hide_root_folder = false,
         side = "left",
         preserve_window_proportions = false,
@@ -70,7 +75,7 @@ require("nvim-tree").setup({ -- BEGIN_DEFAULT_OPTS
         },
         icons = {
             webdev_colors = true,
-            git_placement = "before",
+            git_placement = "after",
             modified_placement = "after",
             padding = " ",
             symlink_arrow = " ➛ ",
@@ -97,13 +102,15 @@ require("nvim-tree").setup({ -- BEGIN_DEFAULT_OPTS
                     symlink_open = "",
                 },
                 git = {
-                    unstaged = "✗",
-                    staged = "✓",
+            -- Change type
+                    deleted = "✖",
+                    renamed = "󰁕",
+            -- Status type
+                    untracked = "",
+                    ignored = "",
+                    unstaged = "󰄱",
                     unmerged = "",
-                    renamed = "➜",
-                    untracked = "★",
-                    deleted = "",
-                    ignored = "◌",
+                    staged = "",
                 },
             },
         },
@@ -133,7 +140,7 @@ require("nvim-tree").setup({ -- BEGIN_DEFAULT_OPTS
             max = vim.diagnostic.severity.ERROR,
         },
         icons = {
-            hint = "",
+            hint = "󰌵",
             info = "",
             warning = "",
             error = "",

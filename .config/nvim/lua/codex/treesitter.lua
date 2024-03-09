@@ -11,8 +11,6 @@ configs.setup{
   ignore_install = { "" }, --List of parsers to ignore installing
   highlight = {
     enable = true, -- false will disable the whole extension
-    disable = { "" }, -- list of languages that will be disabled
-    additional_vim_regex_highlighting = true,
   },
   filtype = vim.treesitter.language.register("php","html"),
   indent = { enable = true, disable = { "yaml" } },

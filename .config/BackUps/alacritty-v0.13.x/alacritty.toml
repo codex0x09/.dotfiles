@@ -1,0 +1,63 @@
+#------------------------------------------------#
+#   https://alacritty.org/config-alacritty.html  |
+#------------------------------------------------#
+
+#shell = "/bin/bash"  # for linux machine
+#shell = "/bin/zsh"  # for linux machine
+shell = "E:\\SystemDirectory\\Distros_Master\\Debian-GNULinux\\debian.exe"
+working_directory = "None"
+live_config_reload = true
+
+
+#dark_pastels.yaml ubuntu.yaml #xterm.yaml
+#thelovelace.yaml everforest_dark.yaml
+#solarized_dark.yaml monokai_git.yaml  tokyo-night.yaml  cyber_punk_neon
+#xterm_codex.toml #tokyo-night-codex.toml
+import = [
+    "C:\\Users\\Unix-root\\AppData\\Roaming\\alacritty\\themes\\themes\\ubuntu_codex.toml"
+   # "C:\\Users\\Unix-root\\AppData\\Roaming\\alacritty\\themes\\themes\\solarized_dark.toml"
+]
+[window]
+padding = { x = 2, y = 1 }
+#dynamic_padding = true
+decorations = "None"  # window-bar "None"(default)|"Full"|"Transparent"(mac only). <- just amazing
+opacity = 0.93  #0.97 0.85 <float> from 0.0 to 1.0 (default).
+blur = true  # (works on mach/kde Wayland) by requesting the compositor to blurring.
+startup_mode =  "Windowed"
+# Values for {startup_mode}:
+#   - Windowed (default)
+#   - Maximized
+#   - Fullscreen
+title = "CODEX-0x09"  #"Alacritty" (default)
+dynamic_title =  false  # allows terminal app to change Alacritty's window title.
+[scrolling]
+history =  10000  # (default: 10000).
+multiplier =  10  # Number of line scrolled for every input scroll increment (defualt: 3).
+[font]
+normal = { family = "JetBrainsMono NF", style = "Regular" }  # "Medium"
+bold = { family = "JetBrainsMono NF", style = "Bold" }
+italic = { family = "JetBrainsMono NF", style = "Italic" }
+bold_italic = { family = "JetBrainsMono NF", style = "Bold Italic" }
+size = 9.25  # <float> (default: 11.25).
+offset = { x = 0, y = 0 }  # (default 0,0) is extra space around each char
+#glph_offset = { x = 0, y = 0 }  # (default 0,0) Glyph offset
+builtin_box_drawing = true  # Alacritty'll use its built-in font to enhance powerline symbols(default: true)
+[colors]
+[colors.primary]
+foreground = "#d0d0d0"
+background = "#05050e"
+#vi_mode_cursor = { text = "#000000", cursor = "#ff0000" }
+[colors.search]
+matches = {foreground = "#181818", background = "#ac4242"}
+[colors.hints]
+start = {foreground = "#181818", background = "#f4bf75"}
+end = {foreground = "#181818", background = "#ac4242"}
+[cursor]
+style = { shape = "Block", blinking = "Off"} # shape="Underline"|"Beam", blinking="Never"|"On"|"Always"
+vi_mode_style = { shape = "Block", blinking = "On"}
+blink_interval = 750  # cursor blinking interval in milliseconds (default: 750).
+blink_timeout = 5  # time after whcich cursor stops blinking, in seconds (default: 5).
+unfocused_hollow = true  # if true, the cursor will be rendered as a hollow box when the window is not focused.
+thickness = 0.15  # thickness of the cursor relative to the cell width as floating point number from 0.0 to 1.0 default: 0.15
+[mouse]
+hide_when_typing = true  # hiding the mouse

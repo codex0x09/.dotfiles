@@ -29,4 +29,5 @@ else
   hi! LineNr guibg=none
   ]]
   print("Hi Codex, your Theme is loaded successfully \"(>^.^<)\"")
+  return
 end

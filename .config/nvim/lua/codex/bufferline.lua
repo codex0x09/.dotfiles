@@ -5,14 +5,18 @@ end
 
 bufferline.setup {
   options = {
-    separator_style = "thin",                            -- |"thin" |"thick" | "slant" | { 'any', 'any' },
-    numbers = "buffer_id",                               -- | "ordinal" | "buffer_id" | "both",
+    separator_style = "thin", -- |"thin" |"thick" | "slant" | { 'any', 'any' },
+    numbers = "buffer_id",  -- | "ordinal" | "buffer_id" | "both",
     show_buffer_close_icons = false,
     show_close_icon = false,
     show_buffer_icons = true,
-    indicator_icon = "   ",                              --"▎"  --old value is --"▎"
-    diagnostics = "nvim_lsp",                             --| "coc",
+    indicator = {
+      icon = "   ",  -- this should be omitted if indicator style is not 'icon'
+      style = 'icon' -- | 'underline' | 'none',
+    },
+    diagnostics = "nvim_lsp", --| "coc",
     diagnostics_update_in_insert = true,
+    truncate_names = false,
     diagnostics_indicator = function(count, level)
       local icon = level:match("error") and " " or " "
       return " " .. icon .. count
@@ -30,8 +34,14 @@ bufferline.setup {
   --TODO: see :h bufferline and search for /highlight
   highlights = {
     indicator_selected = {
-      fg = '#00ffff',
-      --bg = '<colour-value-here>',
+      fg = '#00ffff'
     },
+    trunc_marker = {
+      fg = '#00f000'
+    },
+    tab_selected = {
+      fg = '#00ffff'
+    },
+    --buffer_visible = {fg = '#ff0000'},
   },
 }

@@ -21,7 +21,7 @@ runtime! ftplugin/man.vim
 "{{{ Themes :------------------------------JK
 "********* for -->Tokyo-nihgt *************
 "<<--
-let g:airline_theme = "dark" 
+let g:airline_theme = "deep_space"
 "-->>"purify"
 "color tokyonight "retrobox "codedark "miramare "srcery
 "
@@ -29,7 +29,7 @@ let g:airline_theme = "dark"
 hi! Comment cterm=none
 hi! Normal ctermbg=None
 hi! Terminal ctermbg=None
-hi! LineNr ctermfg=30 " 23
+"hi! LineNr ctermfg=30 " 23
 hi! EndOfBuffer ctermbg=None
 hi! cursorline cterm=none ctermbg=233  "17 "236
 hi! cursorlineNr cterm=bold ctermfg=30 ctermbg=234 "235 "233  "17 "236
