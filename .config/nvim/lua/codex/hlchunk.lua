@@ -36,6 +36,7 @@ require("hlchunk").setup({
   },
 --]]
 
+  --[[
   line_num = {
     enable = true,
     use_treesitter = false,
@@ -45,8 +46,8 @@ require("hlchunk").setup({
     style = "#bbbbbb", -- for all themes
     style = "#df2a2a",
     style = "#806d9c",
---]]
   },
+--]]
 
   blank = {
     enable = true,

@@ -1,7 +1,6 @@
 -- Default options:
 
 vim.cmd [[
-
     " Important!!
     if has('termguicolors')
     set termguicolors
@@ -54,6 +53,23 @@ vim.cmd [[
     let g:gruvbox_material_diagnostic_virtual_text = ''
     colorscheme gruvbox-material
   ]]
+-- Apply custom highlights on colorscheme change.
+-- Must be declared before executing ':colorscheme'.
+local grpid = vim.api.nvim_create_augroup('custom_highlights_gruvboxmaterial', {})
+vim.api.nvim_create_autocmd('ColorScheme', {
+    group = grpid,
+  pattern = 'gruvbox-material',
+  callback = function()
+    local function hl_lnk(src, trgt)
+      vim.api.nvim_set_hl(0, src, { link = trgt })
+    end
+
+    hl_lnk('DiagnosticErrorText', 'TSDanger')
+    hl_lnk('DiagnosticWarnText',  'TSWarning')
+    hl_lnk('DiagnosticHintText',  'TSNote')
+    hl_lnk('DiagnosticInfoText',  'TSTodo')
+  end
+})
 
 vim.cmd [[
     hi! Debug           guifg=#ff9e64
@@ -61,12 +77,12 @@ vim.cmd [[
     hi! DiagnosticWarn  guifg=#e0af68
     hi! DiagnosticInfo  guifg=#0db9d7
     hi! DiagnosticHint  guifg=#1abc9c
-    hi! DiagnosticOk    ctermfg=10 guifg=LightGreen
-    hi! DiagnosticUnderlineError  cterm=undercurl gui=undercurl guisp=#db4b4b
-    hi! DiagnosticUnderlineWarn  cterm=undercurl gui=undercurl guisp=#e0af68
-    hi! DiagnosticUnderlineInfo  cterm=undercurl gui=undercurl guisp=#0db9d7
-    hi! DiagnosticUnderlineHint  cterm=undercurl gui=undercurl guisp=#1abc9c
-    hi! DiagnosticUnderlineOk  cterm=underline gui=underline guisp=LightGreen
+    hi! DiagnosticOk    guifg=LightGreen
+    hi! DiagnosticUnderlineError gui=undercurl guisp=#db4b4b
+    hi! DiagnosticUnderlineWarn  gui=undercurl guisp=#e0af68
+    hi! DiagnosticUnderlineInfo  gui=undercurl guisp=#0db9d7
+    hi! DiagnosticUnderlineHint  gui=undercurl guisp=#1abc9c
+    hi! DiagnosticUnderlineOk    gui=underline guisp=LightGreen
     hi! DiagnosticVirtualTextError guifg=#db4b4b  "guibg=#362c3d
     hi! DiagnosticVirtualTextWarn  guifg=#e0af68  "guibg=#373640
     hi! DiagnosticVirtualTextInfo  guifg=#0db9d7  "guibg=#22374b
@@ -83,7 +99,8 @@ vim.cmd [[
     hi! link DiagnosticSignHint    DiagnosticHint
     hi! link DiagnosticSignOk    DiagnosticOk
     hi! DiagnosticDeprecated  cterm=strikethrough gui=strikethrough guisp=Red
-    hi! DiagnosticUnnecessary  guifg=#414868
+    hi! DiagnosticUnnecessary gui=italic
+    hi! Search guibg=#ff6400 guifg=#000000
 ]]
   --vim.cmd[[hi! CurSearch guibg=#60ff60 guifg=#000080]]
   --vim.cmd[[hi! Search guibg=#ff6400 guifg=#111111]]

@@ -39,3 +39,6 @@ vim.opt.sidescrolloff = 8			-- is one of my favorit, for side scrolling or wirtt
 vim.cmd [[set nrformats+=alpha]]    -- for increament chars see :h change.txt -> line 409
 vim.cmd [[set iskeyword+=-]]		-- let vim assumes any wodrds sperated by hiphen(-) is a word (e.i codex-do)
 vim.cmd [[set guicursor=i-n-c-ci-cr-v-ve-o-r-sm:block]] -- set the cursor shape in all the mode block cursor(||)
+vim.cmd [[let g:loaded_perl_provider = 0]] -- disable perl provider warning
+vim.cmd [[let g:loaded_ruby_provider = 0]] -- disable perl provider warning
+-- vim.cmd[[:intro ]] -- display the intro
