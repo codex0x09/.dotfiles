@@ -43,16 +43,17 @@ vim.opt.rtp:prepend(lazypath)
   --  { "catppuccin/nvim", as = "catppuccin" }
   --  'sainnhe/everforest'
   -------------------------------------------------------------------
-  -- Plugins
+  -- [[     FILE BROWSERS     ]] --
   {
     'nvim-telescope/telescope.nvim', tag = '0.1.5',
     -- or                          , tag = '0.1.x',
     dependencies = { 'nvim-lua/plenary.nvim' }
   },
+  --[[
   {
     "nvim-tree/nvim-tree.lua"
   },
-  --[[
+  --]]
   {
     "nvim-neo-tree/neo-tree.nvim",
     branch = "v3.x",
@@ -62,8 +63,6 @@ vim.opt.rtp:prepend(lazypath)
       "MunifTanjim/nui.nvim",
     }
   },
-  --]]
-  -- { 'kyazdani42/nvim-tree.lua', version = "*", build = ':NvimTreeToggle' },
   {
     'akinsho/bufferline.nvim', version = "*",
     dependencies = 'nvim-tree/nvim-web-devicons'
