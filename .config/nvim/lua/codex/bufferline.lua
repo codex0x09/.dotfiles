@@ -23,7 +23,8 @@ bufferline.setup {
     end,
     offsets = {
       {
-        filetype = "NvimTree",
+        --filetype = "NvimTree",
+        filetype = "neo-tree",
         text = "CODE_X-0x09",
         highlight = "Directory",
         separator = true -- use a "true" to enable the default, or set your own character
