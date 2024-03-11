@@ -84,8 +84,6 @@ neo_tree.setup({
         ["<bs>"] = "navigate_up",
         ["."] = "set_root",
         ["H"] = "toggle_hidden",
-        --["/"] = "fuzzy_finder",
-        ["/"] = "none",   -- disable fuzzy finder , using vim built-in search (*_*)
         ["D"] = "fuzzy_finder_directory",
         ["#"] = "fuzzy_sorter", -- fuzzy sorting using the fzy algorithm
         -- ["D"] = "fuzzy_sorter_directory",
@@ -110,4 +108,15 @@ neo_tree.setup({
       },
     },
   },
+})
+---@_Watchout_: to disable any thing, then shuld be in separate source to work fine and don't effect other mappings
+neo_tree.setup({
+  filesystem = {
+    window = {
+      mappings = {
+        -- disable fuzzy finder, and using vim built-in (★‿★) search instead
+        ["/"] = "none"
+      }
+    }
+  }
 })
