@@ -1,0 +1,27 @@
+#!/bin/bash
+
+#-----------------------------#
+#create session in background (-d)
+tmux new -s "dev" -d
+tmux split-window -v -p 10
+tmux split-window -h -p 50
+#------------------------# select and run programs
+tmux select-pane -U
+# tmux send-keys -t "dev" 'sl;nvim' C-m -> target session name is optional -t "s-name"
+tmux send-keys -t "dev" 'sl;nvim' C-m
+
+# go to right down
+tmux select-pane -D
+# run chain commands
+tmux send-keys -t "dev" 'sleep 6;sl;clear' C-m
+
+# go to left pane
+tmux select-pane -L
+# run chain commands
+tmux send-keys -t "dev" 'sleep 8;sl;clear' C-m
+
+# go back to editor vi
+tmux select-pane -U
+
+# main(){ attach detached(-d) "dev" session }
+tmux attach-session -d -t "dev"
