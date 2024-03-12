@@ -62,6 +62,7 @@ M.setup = function()
   })
 end
 
+--[[
 local function lsp_keymaps(bufnr)
   local opts = { noremap = true, silent = true }
   vim.api.nvim_buf_set_keymap(bufnr, "n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
@@ -78,12 +79,15 @@ local function lsp_keymaps(bufnr)
   vim.api.nvim_buf_set_keymap(bufnr, "n", "]d", '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<CR>', opts)
   vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>q", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
   vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
-end
+--end
+--]]
 
-M.on_attach = function(client, bufnr)
-  lsp_keymaps(bufnr)
+--M.on_attach = function(client, bufnr)
+M.on_attach = function(client)
+  --lsp_keymaps(bufnr)
   require 'illuminate'.on_attach(client)
 end
+
 local status_ok, cmp_luasnip = pcall(require, "cmp_luasnip ")
 if status_ok then
   M.capabilities = cmp_luasnip.default_capabilities()
