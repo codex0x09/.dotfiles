@@ -40,7 +40,7 @@ keymap("n", "<leader>p", "mp<Cmd>silent %!prettier --stdin-filepath %<CR>'p", op
 keymap("n", "<leader>z", "<Cmd>LspZeroFormat<CR>", opts) -- takes arguments only
 
 --[[##########  -- Lsp Code Action  --    #############]]
-keymap("n", "gh", "<Cmd>lua vim.lsp.buf.hover()<CR>", opts) -- lsp hover
+keymap("n", "gk", "<Cmd>lua vim.lsp.buf.hover()<CR>", opts) -- lsp hover
 
 --[[##########  -- Open All Lsp Operations --    #############]]
 keymap("n", "gl", ":lua vim.lsp.buf", {}) -- replace 'opts'with'{}' to show the command

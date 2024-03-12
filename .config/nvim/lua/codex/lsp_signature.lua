@@ -59,7 +59,7 @@ local cfg = {
 --}
 require "lsp_signature".setup(cfg)
 
-vim.keymap.set({ 'n' }, 'gk', function() -- keymap to display parameter info Dynamically (Awesome)
+vim.keymap.set({ 'n' }, 'gh', function() -- keymap to display parameter info Dynamically (Awesome)
     require('lsp_signature').toggle_float_win()
 end, { silent = true, noremap = true, desc = 'toggle signature' })
 
