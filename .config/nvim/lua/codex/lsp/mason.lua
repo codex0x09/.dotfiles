@@ -54,6 +54,7 @@ require("mason-tool-installer").setup({
     "jsonls",
     "emmet-ls",
     "prettierd",
+    "bashls",
   },
   run_on_start = true, -- automatically install / update on startup
   start_delay = 3000, -- set delay before the installation
