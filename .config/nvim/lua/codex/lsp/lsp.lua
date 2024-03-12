@@ -12,6 +12,7 @@ lsp = {
 }
 ---@_Making_vim_Global_in_this_way_is_useless
 -- I'll keep it for future, who's now may I'll fix it one day!!.
+--[[
 require 'lspconfig'.lua_ls.setup {
   settings = {
     Lua = {
@@ -35,3 +36,4 @@ require 'lspconfig'.lua_ls.setup {
     },
   },
 }
+--]]

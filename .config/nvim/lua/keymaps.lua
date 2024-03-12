@@ -1,5 +1,4 @@
---[[ Shorten functions Name ]]
---
+--[[ Shorten functions Name ]]--
 
 local opts = { noremap = true, silent = true }
 
@@ -30,14 +29,14 @@ keymap("n", "<leader>m", ":Man ", {}) -- its parameter is ~/.astylerc (sourced)
 
 
 --[[##########  -- Astyle --    #############]]
-keymap("n", "<leader>g", "ma<Cmd>%!astyle<CR>'a", opts)                                                 -- its parameter is ~/.astylerc (sourced)
-keymap("n", "<leader>=", "ma<Cmd>%!astyle --style=java --keep-one-line-blocks  --pad-oper<cr>'a", opts) -- takes arguments only
+--keymap("n", "<leader>g", "ma<Cmd>%!astyle<CR>'a", opts)                                                 -- its parameter is ~/.astylerc (sourced)
+keymap("n", "<leader>g", "ma<Cmd>%!astyle --style=java --keep-one-line-blocks  --pad-oper<cr>'a", opts) -- takes arguments only
 
 --[[##########  -- Prettier Format --    #############]]
-keymap("n", "<leader>p", "mp<Cmd>silent %!prettier --stdin-filepath %<CR>'p", opts)
+--keymap("n", "<leader>p", "mp<Cmd>silent %!prettier --stdin-filepath %<CR>'p", opts)
 
 --[[##########  -- Lsp Zero Format --    #############]]
-keymap("n", "<leader>z", "<Cmd>LspZeroFormat<CR>", opts) -- takes arguments only
+keymap("n", "<leader>=", "<Cmd>LspZeroFormat<CR>", opts) -- takes arguments only
 
 --[[##########  -- Lsp Code Action  --    #############]]
 keymap("n", "gk", "<Cmd>lua vim.lsp.buf.hover()<CR>", opts) -- lsp hover
@@ -68,7 +67,7 @@ keymap("n", "<leader>\\", "<Cmd>set formatoptions+=cro<CR>", opts)
 keymap("n", "jf", ":<C-f>", opts)
 
 -- Fold / Unfold
-keymap("n", "<leader>f", "$zf%", opts)
+--keymap("n", "<leader>f", "$zf%", opts)
 keymap("v", "<leader>f", "zf", opts)
 keymap("n", "<leader>a", "za", opts)
 
