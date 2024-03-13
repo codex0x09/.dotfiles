@@ -135,7 +135,7 @@ require('lualine').setup({
     theme = gruvbox,
     icons_enabled = true,
     section_separators = { left = '', right = '' },    -- { left = '', right = ''}, { left = '', right = '' }
-    component_separators = { left = '▎', right = '▎' },  -- { left = '', right = ''},
+    component_separators = { left = '|', right = '|' },  -- { left = '', right = ''}, ▎
     disabled_filetypes = {
       statusline = {},
       winbar = {},
