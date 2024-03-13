@@ -1,10 +1,10 @@
-local ok , neo_tree = pcall(require, "neo-tree")
+local ok, neo_tree = pcall(require, "neo-tree")
 if not ok then
   return
 end
 -- If you want icons for diagnostic errors, you'll need to define them somewhere:
+vim.keymap.set('n', '<leader>e', ':Neotree filesystem reveal left toggle<CR>', { silent = true })
 neo_tree.setup({
-  vim.keymap.set('n','<leader>e', ':Neotree filesystem reveal left toggle<CR>',{ silent = true}),
   default_component_configs = {
     diagnostics = {
       symbols = {
@@ -91,7 +91,7 @@ neo_tree.setup({
         ["<c-x>"] = "clear_filter",
         ["[g"] = "prev_git_modified",
         ["]g"] = "next_git_modified",
-        ["o"] = { "show_help", nowait=false, config = { title = "Order by", prefix_key = "o" }},
+        ["o"] = { "show_help", nowait = false, config = { title = "Order by", prefix_key = "o" } },
         ["oc"] = { "order_by_created", nowait = false },
         ["od"] = { "order_by_diagnostics", nowait = false },
         ["og"] = { "order_by_git_status", nowait = false },

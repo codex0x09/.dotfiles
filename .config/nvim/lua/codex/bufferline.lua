@@ -11,7 +11,7 @@ bufferline.setup {
     show_close_icon = false,
     show_buffer_icons = true,
     indicator = {
-      icon = "   ",  -- this should be omitted if indicator style is not 'icon'
+      icon = "  ",  --    this should be omitted if indicator style is not 'icon'
       style = 'icon' -- | 'underline' | 'none',
     },
     diagnostics = "nvim_lsp", --| "coc",
@@ -35,7 +35,7 @@ bufferline.setup {
   --TODO: see :h bufferline and search for /highlight
   highlights = {
     indicator_selected = {
-      fg = '#00ffff'
+      fg = '#00ff00'
     },
     trunc_marker = {
       fg = '#00f000'
