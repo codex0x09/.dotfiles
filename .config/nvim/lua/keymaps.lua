@@ -46,7 +46,7 @@ keymap("n", "go", '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
 keymap("n", "gl", ":lua vim.lsp.buf", {}) -- replace 'opts'with'{}' to show the command
 
 --[[##########  -- Open Nvim-Tree --    #############]]
-keymap("n", "<leader>e", "<Cmd>NvimTreeToggle<CR>", opts)
+--keymap("n", "<leader>e", "<Cmd>NvimTreeToggle<CR>", opts)
 
 --[[##########  -- Open Config Tree --    #############]]
 keymap("n", "<leader>'", "<Cmd>sp|resize 10|e ~/.config/nvim/lua<CR>", opts)
