@@ -1,8 +1,8 @@
 local ok, neo_tree = pcall(require, "neo-tree")
 if not ok then
+  print("neo-tree.lua: neo-tree not installed, please install it.")
   return
 end
--- If you want icons for diagnostic errors, you'll need to define them somewhere:
 vim.keymap.set('n', '<leader>e', ':Neotree filesystem reveal left toggle<CR>', { silent = true })
 neo_tree.setup({
   default_component_configs = {

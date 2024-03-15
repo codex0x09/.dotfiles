@@ -42,6 +42,9 @@ keymap("n", "<leader>=", "<Cmd>LspZeroFormat<CR>", opts) -- takes arguments only
 keymap("n", "gk", "<Cmd>lua vim.lsp.buf.hover()<CR>", opts) -- lsp hover
 keymap("n", "go", '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
 
+--[[##########  -- Open Menue for Help Pages  --    #############]]
+keymap("n", "gO", '<cmd>normal gO<CR>', opts)
+
 --[[##########  -- Open All Lsp Operations --    #############]]
 keymap("n", "gl", ":lua vim.lsp.buf", {}) -- replace 'opts'with'{}' to show the command
 
