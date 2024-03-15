@@ -1,8 +1,8 @@
 ---------------------------------** Hits: **----------------------------------------------
 -- this file contens configrations of three Plug-ins working together
--- Mason.nvim (used for installing lsps and third part binarys),
--- Mashn-lspconfig.nvim (used for automatically config any server installed by Mason), and
--- Mason-tool-installer.nvim (used for ensure installed certain server hard coded by user)
+-- Mason.nvim (used for installing Language Servers and Third-Part Binarys),
+-- Mason-lspconfig.nvim (used for automatically config any server installed by Mason), and
+-- Mason-tool-installer.nvim (used for ensure installed certain Servers hard coded by user)
 ------------------------------------------------------------------------------------------
 require("mason").setup({ -- should be first
   ui = {
@@ -46,16 +46,19 @@ require("mason-lspconfig").setup_handlers({
 require("mason-tool-installer").setup({
   -- a list of all tools you want to ensure are installed upon start
   ensure_installed = {
+    -- language servers
     "lua-language-server",
     "vim-language-server",
-    "clang-format",
     "clangd",
-    "pyright",
+    "intelephense",
     "jsonls",
     "emmet-ls",
-    "prettierd",
+    "pyright",
     "bashls",
+    -- Linters & Formmaters
+    "clang-format",
+    "prettierd",
   },
   run_on_start = true, -- automatically install / update on startup
-  start_delay = 3000, -- set delay before the installation
+  start_delay = 3000,  -- set delay before the installation
 })

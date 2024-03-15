@@ -50,6 +50,7 @@ alias megaman='echo -e "-*- \e[1;31mMegaman\e[0m -*- is: \e[01;32m$USER\e[01;34m
 #sleep 1 && echo -e "\n\n\n\t-*- \e[1;2;4;31mDone\e[00m -*-"'
 
 #
+alias chmod='chmod -c'
 alias cat='batcat'
 alias cp='cp -uv'
 alias grep='grep -i --color=auto'
