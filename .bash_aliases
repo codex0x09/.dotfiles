@@ -64,10 +64,10 @@ vim
 # -- lsd version
 alias l='lsd -l'
 alias ll='lsd -la'
+alias ls='lsd'
 # -- exa version
 alias el='exa -l'
 alias ell='exa -la'
-alias exa='exa'
 
 alias rm='rm -I'
 alias search='whereis'
