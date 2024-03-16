@@ -55,8 +55,12 @@ require("mason-tool-installer").setup({
     "emmet-ls",
     "pyright",
     "bashls",
-    -- Linters & Formmaters
+    -- Linters
+    "phpmd",
+    -- Formmaters
     "clang-format",
+    "pretty-php",
+    "stylua",
     "prettierd",
   },
   run_on_start = true, -- automatically install / update on startup
