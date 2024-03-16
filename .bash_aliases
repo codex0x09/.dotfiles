@@ -54,10 +54,21 @@ alias chmod='chmod -c'
 alias cat='batcat'
 alias cp='cp -uv'
 alias grep='grep -i --color=auto'
-alias l='ls -l --sort=version'
-alias ll='ls -la --color=auto --sort=version'
-alias ls='ls -h --color=auto --sort=version'
-alias lx='ls -X'
+# -- ls version
+<<vim
+alias l='lsd -l --sort=version'
+alias ll='lsd -la --color=auto --sort=version'
+alias lsd='lsd -h --color=auto --sort=version'
+alias lx='lsd -X'
+vim
+# -- lsd version
+alias l='lsd -l'
+alias ll='lsd -la'
+# -- exa version
+alias el='exa -l'
+alias ell='exa -la'
+alias exa='exa'
+
 alias rm='rm -I'
 alias search='whereis'
 #alias mv='mv -i '
