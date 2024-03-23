@@ -118,6 +118,11 @@ export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quo
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
 source ~/.bash_aliases
 
+# -- set less variable
+LESS="--incsearch -g -i -J -M -s -S -w -x4 -X -z-4  -Ph="
+#LESS="--incsearch -g -J -i -F -M -R -S -w -X -z-4"
+export LESS
+#
 ##############################################################################
 #                      ###// Coloring Less ###//                             #
 ##############################################################################
@@ -130,6 +135,7 @@ export LESS_TERMCAP_se=$'\E[0m'                    # reset reverse video     #
 export LESS_TERMCAP_us=$'\E[1;91m'                 # begin underline         #
 export LESS_TERMCAP_ue=$'\E[0m'                    # reset underline         #
 ##############################################################################
+
 #
 #{{{ ---------------------------------------------------------------------
 #bsd_dots(){
