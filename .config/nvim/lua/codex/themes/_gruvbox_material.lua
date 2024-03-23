@@ -100,7 +100,11 @@ vim.cmd [[
     hi! link DiagnosticSignOk    DiagnosticOk
     hi! DiagnosticDeprecated  cterm=strikethrough gui=strikethrough guisp=Red
     hi! DiagnosticUnnecessary gui=italic
+
     hi! Search guibg=#ff6400 guifg=#000000
+    hi! MatchParen gui=bold guifg=#ff6400 guibg=None
+    hi! CursorLineNr gui=bold guifg=#ff6400  "#ffaf5f
+    hi! CursorLine guibg=#202020  "#12122a
 ]]
   --vim.cmd[[hi! CurSearch guibg=#60ff60 guifg=#000080]]
   --vim.cmd[[hi! Search guibg=#ff6400 guifg=#111111]]

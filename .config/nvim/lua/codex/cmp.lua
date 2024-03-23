@@ -122,6 +122,7 @@ cmp.setup({
 	sources = {
 		{ name = "path" },
 		{ name = "luasnip" },
+		{ name = "friendly-snippets" },
 		{ name = "nvim_lua" },
 		{ name = "emmet_ls" },
 		{ name = "nvim_lsp" },

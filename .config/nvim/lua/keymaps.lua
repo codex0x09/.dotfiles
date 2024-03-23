@@ -36,7 +36,7 @@ keymap("n", "<leader>g", "ma<Cmd>%!astyle --style=java --keep-one-line-blocks  -
 --keymap("n", "<leader>p", "mp<Cmd>silent %!prettier --stdin-filepath %<CR>'p", opts)
 
 --[[##########  -- Lsp Zero Format --    #############]]
-keymap("n", "<leader>=", "<Cmd>LspZeroFormat<CR>", opts) -- takes arguments only
+keymap("n", "<leader>-", "<Cmd>LspZeroFormat<CR>", opts) -- takes arguments only
 
 --[[##########  -- Lsp Code Action  --    #############]]
 keymap("n", "gk", "<Cmd>lua vim.lsp.buf.hover()<CR>", opts) -- lsp hover
@@ -74,8 +74,8 @@ keymap("n", "jf", ":<C-f>", opts)
 
 -- Fold / Unfold
 --keymap("n", "<leader>f", "$zf%", opts)
-keymap("v", "<leader>f", "zf", opts)
-keymap("n", "<leader>a", "za", opts)
+--keymap("v", "<leader>f", "zf", opts)
+--keymap("n", "<leader>a", "za", opts)
 
 -- Remove Cursorline/ Set Cursorline
 keymap("n", "<leader><Space>", "<Cmd>set nocursorline<CR>", opts)
