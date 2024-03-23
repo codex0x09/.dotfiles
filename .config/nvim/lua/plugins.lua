@@ -95,6 +95,7 @@ local plugins = {
   "williamboman/mason-lspconfig.nvim",
   "WhoIsSethDaniel/mason-tool-installer.nvim",
   "neovim/nvim-lspconfig",    -- enable LSP
+  "nvimtools/none-ls.nvim",  -- Allwos you to specify which lsp-tools do the action you want.[powerful]
   -- Autocompletion
   "hrsh7th/nvim-cmp",         -- The main completion plugin {main}
   "hrsh7th/cmp-buffer",       -- buffer completions {cmp extension}
