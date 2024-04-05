@@ -1,9 +1,8 @@
 # Allman brackets style
 --style=allman
 
-# 4 spaces indentation
---indent=spaces
--s4
+# indent using Spaces
+--indent=spaces=2
 
 # Convert Tabs into Spaces
 #--convert-tabs
