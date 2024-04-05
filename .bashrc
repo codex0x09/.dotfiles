@@ -119,7 +119,8 @@ export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quo
 source ~/.bash_aliases
 
 # -- set less variable
-LESS="-g -i -J -M -s -w -z-4 -R --tabs=2 --incsearch --status-line"
+# -- see :Man less at line :385 for more options, using vim for shell.
+LESS="-g -i -J -M -s -w -z-4 --raw-control-chars --tabs=2 --incsearch --status-line"
 #ESS="--incsearch -g -J -i -F -M -R -S -w -X -z-4"
 export LESS
 #
