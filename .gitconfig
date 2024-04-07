@@ -7,6 +7,8 @@
 #	email = codex123@Codex.localdomain
 [core]
 	editor = vim
+	pager = less -FRX
+
 [pull]
 	rebase = false
 	# rebase = --no-rebase || false  # merge (the default strategy)
