@@ -39,8 +39,5 @@ require('gitsigns').setup {
     yadm = {
         enable = false
     },
-    --vim.cmd([[ set statusline+=%{get(b:,'gitsigns_status_head','')} ]])
-    --vim.cmd([[g:gitsigns_head]]),
-   -- vim.cmd([[b:gitsigns_head]])
 }
 

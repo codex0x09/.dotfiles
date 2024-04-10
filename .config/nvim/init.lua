@@ -1,3 +1,4 @@
+-- Load coifguration files
 require("options")
 require("keymaps")
 require("autocmd")
@@ -14,6 +15,12 @@ require("codex.treesitter")
 require("codex.lsp")
 require("codex.cmp")
 require("codex.hlchunk")
-require("codex.lsp_signature")
 require("codex.gitsigns")
---require("codex.nvim-tree")
+require("codex.web-devicons")
+require("codex.comment")
+require("codex.nvim_surround")
+require("codex.lsp_signature")
+require("codex.lspsaga")
+-- uncomment this block if you install them
+--[[ require("codex.notify")
+require("codex.noice") ]]

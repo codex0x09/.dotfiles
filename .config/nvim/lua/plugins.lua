@@ -1,6 +1,5 @@
 --------------------------------------
---[[        Auto-Install  Lazy    ]]
---
+-- [[        Auto-Install  Lazy    ]] --
 --------------------------------------
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
@@ -74,20 +73,31 @@ local plugins = {
 		"nvim-lualine/lualine.nvim",
 		dependencies = { "nvim-tree/nvim-web-devicons", lazy = true },
 	},
-	--Tagbar for code navigation
+	-- [[  Tagbar for code navigation   ]] --
 	{ "preservim/tagbar", build = ":tagbar" },
 	"dstein64/vim-startuptime",
-	-- Tmux
+	-- [[  Tmux   ]] --
 	"christoomey/vim-tmux-navigator", -- Navigation Between Tmux/N-Vim using [Vi] Motion
 	"tpope/vim-obsession", -- Allwos Tmux Saves N-Vi-M Sessions
-	-- Highlight Documantation
+	-- [[  Highlight Documantation   ]] --
 	{ "nvim-treesitter/nvim-treesitter", build = ":TSUpdate", lazy = false }, --Treesitter build = "TSUpdate"
 	"RRethy/vim-illuminate", --Highlight Documantation{vars name ,ect}
 	"nvim-treesitter/playground", -- Useful for developing {plugins/themes}
 	"norcalli/nvim-colorizer.lua",
 	{ "shellRaining/hlchunk.nvim" },
-	-- Git
+	-- [[    Git     ]] --
 	"lewis6991/gitsigns.nvim", --use "tpope/vim-fugitive"
+	-- [[  Commnet   ]] --
+	{
+		"numToStr/Comment.nvim",
+		event = "VeryLazy",
+	},
+	-- [[  Nvim-Surround   ]] --
+	{
+		"kylechui/nvim-surround",
+		version = "*",
+		event = "VeryLazy",
+	},
 	-------------------------------------------------------------------
 	--[[##########  -- lSP Zone  --    #############]]
 	-- LSP
@@ -138,11 +148,33 @@ local plugins = {
 	},
 	{ "ray-x/lsp_signature.nvim", commit = "c9dc249" }, -- signature(functions arrags completion)
 
-	-- Snippets
 	-------------------------------------------------------------------
+	--[[ UI-Improvements and Notifications ]]
 
-	--[[ Notifications and UI-Improvements ]]
+  -- UI
+	{
+		-- lspSaga release neovim nightly version, else many feature won't work!!.
+		"codex0x09/lspsaga.nvim",
 
+		-- Three ways to lazy load lspsaga
+		after = "nvim-lspconfig",
+
+		-- event = "LspAttach"
+		-- ft = {"c", "cpp", "hpp", "lua"},
+	},
+  -- Notifications
+  {
+    "arkav/lualine-lsp-progress",
+  },
+  -- uncomment this block and do for their config in 'nvim/init.lua'
+	--[[ {
+		"rcarriga/nvim-notify",
+		lazy = false,
+	},
+  {
+    "folke/noice.nvim",
+    lazy = false,
+  }, ]]
 	-------------------------------------------------------------------
 }
 local opts = {}

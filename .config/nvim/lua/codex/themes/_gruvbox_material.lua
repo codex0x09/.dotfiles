@@ -1,6 +1,6 @@
 -- Default options:
 
-vim.cmd [[
+vim.cmd([[
     " Important!!
     if has('termguicolors')
     set termguicolors
@@ -52,26 +52,30 @@ vim.cmd [[
     "let g:gruvbox_material_diagnostic_text_highlight = 0
     let g:gruvbox_material_diagnostic_virtual_text = ''
     colorscheme gruvbox-material
-  ]]
+  ]])
 -- Apply custom highlights on colorscheme change.
 -- Must be declared before executing ':colorscheme'.
-local grpid = vim.api.nvim_create_augroup('custom_highlights_gruvboxmaterial', {})
-vim.api.nvim_create_autocmd('ColorScheme', {
-    group = grpid,
-  pattern = 'gruvbox-material',
-  callback = function()
-    local function hl_lnk(src, trgt)
-      vim.api.nvim_set_hl(0, src, { link = trgt })
-    end
+local grpid = vim.api.nvim_create_augroup("custom_highlights_gruvboxmaterial", {})
+vim.api.nvim_create_autocmd("ColorScheme", {
+	group = grpid,
+	pattern = "gruvbox-material",
+	callback = function()
+		local function hl_lnk(src, trgt)
+			vim.api.nvim_set_hl(0, src, { link = trgt })
+		end
 
-    hl_lnk('DiagnosticErrorText', 'TSDanger')
-    hl_lnk('DiagnosticWarnText',  'TSWarning')
-    hl_lnk('DiagnosticHintText',  'TSNote')
-    hl_lnk('DiagnosticInfoText',  'TSTodo')
-  end
+		hl_lnk("DiagnosticErrorText", "TSDanger")
+		hl_lnk("DiagnosticWarnText", "TSWarning")
+		hl_lnk("DiagnosticHintText", "TSNote")
+		hl_lnk("DiagnosticInfoText", "TSTodo")
+	end,
 })
 
-vim.cmd [[
+--[[ Illuminate ]]
+vim.cmd([[hi! IlluminatedWordText gui=bold guibg=#2f2f2f]])
+vim.cmd([[hi!  IlluminatedWordWrite gui=bold guibg=#2f2f2f]])
+vim.cmd([[hi!  IlluminatedWordRead gui=bold guibg=#2f2f2f]])
+vim.cmd([[
     hi! Debug           guifg=#ff9e64
     hi! DiagnosticError  guifg=#db4b4b
     hi! DiagnosticWarn  guifg=#e0af68
@@ -105,9 +109,12 @@ vim.cmd [[
     hi! MatchParen gui=bold guifg=#ff6400 guibg=None
     hi! CursorLineNr gui=bold guifg=#ff6400  "#ffaf5f
     hi! CursorLine guibg=#202020  "#12122a
-]]
-  --vim.cmd[[hi! CurSearch guibg=#60ff60 guifg=#000080]]
-  --vim.cmd[[hi! Search guibg=#ff6400 guifg=#111111]]
+    hi! LineNrAbove ctermfg=243 guifg=#7c6f64
+    hi! link lineNrBelow LineNrAbove
+    hi! LineNr gui=bold guifg=#ff6400
+]])
+--vim.cmd[[hi! CurSearch guibg=#60ff60 guifg=#000080]]
+--vim.cmd[[hi! Search guibg=#ff6400 guifg=#111111]]
 
 --/////////////////////////////////////////////////////////
 --[[      see :h gruvbox_material -> configuration

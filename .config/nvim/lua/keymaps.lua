@@ -1,11 +1,10 @@
---[[ Shorten functions Name ]]--
+-- [[ Shorten functions Name ]] --
 
 local opts = { noremap = true, silent = true }
 
 --local term_opts = { silnet = true }
 
 local keymap = vim.api.nvim_set_keymap
-
 
 -- Remap Space as leader key
 keymap("", "<Space>", "<Nop>", opts)
@@ -24,29 +23,42 @@ command_MODE = "c"
 
 --[[##########   -- NORMAL MODE  --    #############]]
 
+--[[##########   -- Comment Nvim  --    #############]]
+-- require Comment.nvim Plugin !!
+--[[
+keymap("n", "g;", "gcc", opts) -- Line-comment toggle keymap
+keymap("n", "gh", "gbc", opts) -- Block-comment toggle keymap
+keymap("n", "ga", "gcA", opts) -- Add comment at the end of line.
+keymap("n", "jg", "gco", opts) -- Add comment on the line below
+keymap("n", "kg", "gcO", opts) -- Add comment on the line above
+--]]
+
+
 --[[##########  -- Man Page --    #############]]
 keymap("n", "<leader>m", ":Man ", {}) -- its parameter is ~/.astylerc (sourced)
 
-
 --[[##########  -- Astyle --    #############]]
---keymap("n", "<leader>g", "ma<Cmd>%!astyle<CR>'a", opts)                                                 -- its parameter is ~/.astylerc (sourced)
-keymap("n", "<leader>g", "ma<Cmd>%!astyle --style=java --keep-one-line-blocks  --pad-oper<cr>'a", opts) -- takes arguments only
+--keymap("n", "<leader>g", "ma<Cmd>%!astyle<CR>'a", opts) -- its parameter is ~/.astylerc (sourced)
+keymap("n", "<leader>;", "ma<Cmd>%!astyle --style=java --keep-one-line-blocks  --pad-oper<cr>'a", opts) -- takes arguments only
 
 --[[##########  -- Prettier Format --    #############]]
 --keymap("n", "<leader>p", "mp<Cmd>silent %!prettier --stdin-filepath %<CR>'p", opts)
+
+--[[##########  -- LspSaga Float Terminal --    #############]]
+keymap("n", "<leader>t", "<cmd>Lspsaga term_toggle<cr>", opts)
 
 --[[##########  -- Lsp Zero Format --    #############]]
 keymap("n", "<leader>-", "<Cmd>LspZeroFormat<CR>", opts) -- takes arguments only
 
 --[[##########  -- Lsp Code Action  --    #############]]
 keymap("n", "gk", "<Cmd>lua vim.lsp.buf.hover()<CR>", opts) -- lsp hover
-keymap("n", "go", '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
+keymap("n", "go", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
 
 --[[##########  -- Open Menue for Help Pages  --    #############]]
-keymap("n", "gm", '<cmd>normal gO<CR>', opts)
+keymap("n", "gm", "<cmd>normal gO<CR>", opts)
 
 --[[##########  -- Open Help Page for serval Plugins  --    #############]]
-keymap("n", "g/", '<cmd>normal g?<CR>', opts)
+keymap("n", "g/", "<cmd>normal g?<CR>", opts)
 
 --[[##########  -- Open All Lsp Operations --    #############]]
 keymap("n", "gl", ":lua vim.lsp.buf", {}) -- replace 'opts'with'{}' to show the command
@@ -67,7 +79,6 @@ keymap("n", "jr", "<Cmd>DisalbeHl<CR>", opts)
 -- uncomment / comment
 keymap("n", "<leader>/", "<Cmd>set formatoptions-=cro<CR>", opts)
 keymap("n", "<leader>\\", "<Cmd>set formatoptions+=cro<CR>", opts)
-
 
 -- <C-f> EX-Mode Buffer
 keymap("n", "jf", ":<C-f>", opts)
@@ -106,8 +117,8 @@ keymap("n", "<C-l>", "<C-w>l", opts)
 
 -- Resize with [(holding) Alt] + [h j k l]
 -- we can use M or A for [Alt key]
-keymap("n", "<M-k>", ":resize -2<CR>", opts)          -- Up
-keymap("n", "<M-j>", ":resize +2<CR>", opts)          -- Down
+keymap("n", "<M-k>", ":resize -2<CR>", opts) -- Up
+keymap("n", "<M-j>", ":resize +2<CR>", opts) -- Down
 keymap("n", "<M-h>", ":vertical resize +2<CR>", opts) -- Left
 keymap("n", "<M-l>", ":vertical resize -2<CR>", opts) -- Right
 
@@ -122,14 +133,14 @@ keymap("n", "<S-TAB>", "<Cmd>bprevious<CR>", opts)
 --keymap("n", "<S-h>", "<Cmd>bprevious<CR>", opts)
 --keymap("n", "<S-l>", "<Cmd>bnext<CR>", opts)
 -- List All Buffers and Able Navigate
----@_set_opt_to_"{}"_display_the_:b_cmd
+-- set opt to "{}" display the :b cmd
 keymap("n", "<leader>l", ":ls<CR>:b", {})
 -- Close Buffers
 --keymap("n", "<S-h>", "<Cmd>BufferLineCloseLeft<CR>", opts)
 --keymap("n", "<S-l>", "<Cmd>BufferLineCloseRight<CR>", opts)
 
 -- Open terminal in split
-keymap("n", "<leader>t", ":botright sp|resize 10|set nu! rnu!|terminal<CR>", opts)
+keymap("n", "<leader>tj", ":botright sp|resize 10|set nu! rnu!|terminal<CR>", opts)
 
 -- Remove Search Highlighting
 keymap("n", "<leader>n", ":nohls<CR>", opts)
