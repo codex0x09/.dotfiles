@@ -35,6 +35,7 @@ hi! EndOfBuffer ctermbg=None
 hi! cursorline cterm=none ctermbg=233  "17 "236
 "hi! cursorlineNr cterm=bold ctermfg=30 ctermbg=234 "235 "233  "17 "236
 hi! MatchParen cterm=reverse cterm=bold ctermfg=199 ctermbg=None gui=bold guifg=#ff00af
+hi! VertSplit  cterm=reverse ctermfg=236 ctermbg=234 guifg=#303030 guibg=#1c1c1c
 "hi! Normal ctermfg=255
 "hi! Visual cterm=none ctermbg=202 ctermfg=232
 hi! Search cterm=none ctermbg=202 ctermfg=233
