@@ -8,10 +8,11 @@ alias v='vim ~/.config/'
 
 alias vi='vim -c "color default|\
     hi! Normal ctermfg=255|\
-    hi! Visual cterm=none ctermbg=202 ctermfg=232|\
     hi! link Search Visual|\
     hi! CursorLineNr cterm=none|\
-    hi! CursorLine cterm=none ctermbg=233"'
+    hi! CursorLine cterm=none ctermbg=233|\
+    hi! Visual cterm=none ctermbg=202 ctermfg=232|\
+    hi! VertSplit  cterm=reverse ctermfg=236 ctermbg=234 guifg=#303030 guibg=#1c1c1c"'
 #
 ###########
 ## Tmux  ##
