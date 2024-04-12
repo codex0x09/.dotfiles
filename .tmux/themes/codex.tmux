@@ -15,7 +15,7 @@ set -g status-style "bg=#11111b fg=#ff5800"
 
 seperate="#[fg=#11111b]█"
 #date_time="#[bg=#89b4fa]#[fg=#11111b]   #[bg=#212234]#[fg=#cdd6f4] #(date +'%H:%M %A %d %B' 2>/dev/null) "
-date_time="#[bg=#cba6f7]#[fg=#11111b] 🕘 #[bg=#212234]#[fg=#cdd6f4] %H:%M %A %d %B"
+date_time="#[bg=#cba6f7]#[fg=#11111b] Time #[bg=#212234]#[fg=#cdd6f4] %H:%M %A %d %B"
 
 # -- Right-Status
 set -g status-right-style  "bold"
