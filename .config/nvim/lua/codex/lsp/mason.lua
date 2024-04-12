@@ -57,6 +57,7 @@ require("mason-tool-installer").setup({
     "html",
     "intelephense",
     "pyright",
+    "grammarly",
     -- Linters
     "shellcheck",
     "vint",
@@ -65,6 +66,8 @@ require("mason-tool-installer").setup({
     "eslint_d",
     "htmlhint",
     "phpmd",
+    -- Linter and Formmater
+    "markdownlint",
     -- Formmaters
     "clang-format",
     "stylua",
