@@ -1,7 +1,7 @@
 local ok, lspconfig = pcall(require, "lspconfig")
 if not ok then
-  print("init_lsp_servers.lua: install lspconfig, or write it yourself cody.")
-  return
+	print("init_lsp_servers.lua: install lspconfig, or write it yourself cody.")
+	return
 end
 
 -- setup servers
@@ -18,6 +18,3 @@ lspconfig.emmet_ls.setup({})
 lspconfig.tsserver.setup({})
 lspconfig.tailwindcss.setup({})
 lspconfig.intelephense.setup({})
-
-
-
