@@ -1,6 +1,9 @@
 # -- coloring the clock
 set-option -g clock-mode-colour cyan
 
+# set the position of the window list.
+set -g status-justify centre # [left | centre | right ]
+
 # PANE BORDERS COLOR:
 # -- for inactive panes
 set -g pane-border-style "fg=#5152a4"
