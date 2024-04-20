@@ -6,6 +6,9 @@ call plug#begin('~/.vim/autoload/plugged')
 	Plug 'https://github.com/preservim/nerdtree' "File Explorer(NerdTree)
 	Plug 'https://github.com/preservim/tagbar' "Tagbar for code navigation
 	Plug 'https://github.com/rafi/awesome-vim-colorschemes' "Retro Scheme
+	Plug 'UndeadLeech/vim-undead'
+	Plug 'wuelnerdotexe/vim-enfocado'
+	Plug 'https://github.com/chrisduerr/vim-undead.git'
 	"Plug 'craftzdog/solarized-osaka.nvim' "Solarized ColorScheme (Requires Neovim >= 0.7.2)
 	Plug 'https://github.com/ap/vim-css-color' "CSS Color Preview
 	Plug 'https://github.com/ryanoasis/vim-devicons' "Developer Icons
