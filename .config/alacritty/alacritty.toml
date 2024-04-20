@@ -1,0 +1,73 @@
+#------------------------------------------------#
+#   https://alacritty.org/config-alacritty.html  |
+#------------------------------------------------#
+
+#shell = "/bin/bash"  # for linux machine
+#shell = "/bin/zsh"  # for linux machine
+shell = "E:\\SystemDirectory\\Distros_Master\\Debian-GNULinux\\debian.exe"
+working_directory = "None"
+live_config_reload = true
+
+
+#dark_pastels.yaml ubuntu.yaml #xterm.yaml
+#thelovelace.yaml everforest_dark.yaml
+#solarized_dark.yaml monokai_git.yaml  tokyo-night.yaml  cyber_punk_neon
+#xterm_codex.toml #tokyo-night-codex.toml
+import = [
+   # "~/.config/alacritty/themes/themes/solarized_dark.toml"
+   "C:\\Users\\Unix-root\\AppData\\Roaming\\alacritty\\themes\\themes\\enfocado_neon_dark.toml"
+]
+
+[window]
+padding = { x = 2, y = 1 }
+decorations = "None"
+opacity = 0.95
+blur = true
+startup_mode =  "Windowed"
+title = "CODEX-0x09"
+dynamic_title =  false 
+
+[scrolling]
+history =  10000
+multiplier =  10
+
+[font]
+size = 9.0
+offset = { x = 0, y = 2 }
+builtin_box_drawing = true
+# -- JetBrainsMono font
+normal = { family = "JetBrainsMono NF", style = "Medium" }  # "Medium" "Regular" 
+bold = { family = "JetBrainsMono NF", style = "Bold" }
+italic = { family = "JetBrainsMono NF", style = "Bold Italic" }
+bold_italic = { family = "JetBrainsMono NF", style = "Bold Italic" }
+# -- Inconsolata font
+#normal = { family = "Inconsolata NFM", style = "Regular" }  # "Medium" "Regular" 
+#bold = { family = "Inconsolata NFM", style = "Bold" }
+#italic = { family = "Inconsolata NFM", style = "Italic" }
+#bold_italic = { family = "Inconsolata NFM", style = "Bold Italic" }
+# -- Cosine font
+#normal = { family = "Cousine NFM", style = "Regular" }  # "Medium" "Regular" 
+#bold = { family = "Cousine NFM", style = "Bold" }
+#italic = { family = "Cousine NFM", style = "Italic" }
+#bold_italic = { family = "Cousine NFM", style = "Bold Italic" }
+
+[colors]
+[colors.primary]
+foreground = "#d0d0d0"
+background = "#05050e"
+[colors.search]
+matches = {foreground = "#181818", background = "#ac4242"}
+[colors.hints]
+start = {foreground = "#181818", background = "#f4bf75"}
+end = {foreground = "#181818", background = "#ac4242"}
+
+[cursor]
+style = { shape = "Block", blinking = "Off"}
+vi_mode_style = { shape = "Block", blinking = "On"}
+blink_interval = 750
+blink_timeout = 5
+unfocused_hollow = true
+thickness = 0.15
+
+[mouse]
+hide_when_typing = true
