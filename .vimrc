@@ -27,7 +27,7 @@ color retrobox "habamax  "tokyonight "codedark "miramare "srcery
 set background=dark
 "
 "--for Xterm color
-"hi! Comment cterm=none
+hi! Comment cterm=italic gui=italic
 "hi! Normal ctermbg=None
 hi! Terminal ctermbg=None
 "hi! LineNr ctermfg=30 " 23
@@ -41,8 +41,6 @@ hi! VertSplit  cterm=reverse ctermfg=236 ctermbg=234 guifg=#303030 guibg=#1c1c1c
 hi! Search cterm=none ctermbg=202 ctermfg=233
 hi! CurSearch cterm=none ctermbg=9 ctermfg=232
 hi! CursorLine cterm=none ctermbg=233
-"
-"hi! Comment cterm=bold  "doesn't work well with tmux !? even 'italic'.
 "
 "hi! lineNrAbove
 "hi! CursorLineNr
