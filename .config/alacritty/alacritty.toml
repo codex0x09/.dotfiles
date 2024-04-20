@@ -14,8 +14,8 @@ live_config_reload = true
 #solarized_dark.yaml monokai_git.yaml  tokyo-night.yaml  cyber_punk_neon
 #xterm_codex.toml #tokyo-night-codex.toml
 import = [
-   # "~/.config/alacritty/themes/themes/solarized_dark.toml"
-   "C:\\Users\\Unix-root\\AppData\\Roaming\\alacritty\\themes\\themes\\enfocado_neon_dark.toml"
+   # "~/.config/alacritty/themes/solarized_dark.toml"
+   "C:\\Users\\Unix-root\\AppData\\Roaming\\alacritty\\themes\\enfocado_neon_dark.toml" #xterm_codex.toml"  #ubuntu_codex.toml
 ]
 
 [window]
