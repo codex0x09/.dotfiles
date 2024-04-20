@@ -14,8 +14,8 @@ live_config_reload = true
 #solarized_dark.yaml monokai_git.yaml  tokyo-night.yaml  cyber_punk_neon
 #xterm_codex.toml #tokyo-night-codex.toml
 import = [
-   # "~/.config/alacritty/themes/solarized_dark.toml"
-   "C:\\Users\\Unix-root\\AppData\\Roaming\\alacritty\\themes\\enfocado_neon_dark.toml" #xterm_codex.toml"  #ubuntu_codex.toml
+       "~/.config/alacritty/themes/enfocado_neon_dark.toml"
+      #"C:\\Users\\Unix-root\\AppData\\Roaming\\alacritty\\themes\\enfocado_neon_dark.toml"
 ]
 
 [window]
@@ -25,7 +25,7 @@ opacity = 0.95
 blur = true
 startup_mode =  "Windowed"
 title = "CODEX-0x09"
-dynamic_title =  false 
+dynamic_title =  false
 
 [scrolling]
 history =  10000
@@ -35,18 +35,21 @@ multiplier =  10
 size = 9.0
 offset = { x = 0, y = 2 }
 builtin_box_drawing = true
+
 # -- JetBrainsMono font
-normal = { family = "JetBrainsMono NF", style = "Medium" }  # "Medium" "Regular" 
+normal = { family = "JetBrainsMono NF", style = "Medium" }  # "Medium" "Regular"
 bold = { family = "JetBrainsMono NF", style = "Bold" }
 italic = { family = "JetBrainsMono NF", style = "Bold Italic" }
 bold_italic = { family = "JetBrainsMono NF", style = "Bold Italic" }
+
 # -- Inconsolata font
-#normal = { family = "Inconsolata NFM", style = "Regular" }  # "Medium" "Regular" 
+#normal = { family = "Inconsolata NFM", style = "Regular" }  # "Medium" "Regular"
 #bold = { family = "Inconsolata NFM", style = "Bold" }
 #italic = { family = "Inconsolata NFM", style = "Italic" }
 #bold_italic = { family = "Inconsolata NFM", style = "Bold Italic" }
+
 # -- Cosine font
-#normal = { family = "Cousine NFM", style = "Regular" }  # "Medium" "Regular" 
+#normal = { family = "Cousine NFM", style = "Regular" }  # "Medium" "Regular"
 #bold = { family = "Cousine NFM", style = "Bold" }
 #italic = { family = "Cousine NFM", style = "Italic" }
 #bold_italic = { family = "Cousine NFM", style = "Bold Italic" }
