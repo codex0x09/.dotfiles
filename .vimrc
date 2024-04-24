@@ -5,7 +5,7 @@
 "
 " --> leader = <Space> , --> jk = <Esc> , --> <Space>' = vim_config_Tree
 "
-source ~/.vim/codex/Options.vim
+source ~/.vim/codex/options.vim
 source ~/.vim/codex/keybindings.vim
 source ~/.vim/codex/plugins_Config.vim
 source ~/.vim/codex/vim_plug.vim
