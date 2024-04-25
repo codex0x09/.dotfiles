@@ -163,9 +163,9 @@ local plugins = {
 		-- ft = {"c", "cpp", "hpp", "lua"},
 	},
   -- Notifications
-  {
+  --[[ {
     "arkav/lualine-lsp-progress",
-  },
+  }, ]]
   -- uncomment this block and do for their config in 'nvim/init.lua'
 	--[[ {
 		"rcarriga/nvim-notify",
