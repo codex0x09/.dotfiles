@@ -7,7 +7,8 @@
 #	email = codex123@Codex.localdomain
 [core]
 	editor = vim
-	pager = less -FRX
+#	pager = less -FRX
+	pager = less -g -i -J -M -s -w -z-4 --raw-control-chars --tabs=2 --incsearch --status-line -FX
 [merge]
 	tool = vimdiff
 	conflictstyle = diff3
