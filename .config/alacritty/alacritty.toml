@@ -42,6 +42,12 @@ bold = { family = "JetBrainsMono NF", style = "Bold" }
 italic = { family = "JetBrainsMono NF", style = "Bold Italic" }
 bold_italic = { family = "JetBrainsMono NF", style = "Bold Italic" }
 
+# -- BlixMono font
+#normal = { family = "BlexMono NFM", style = "Regular" }  # "Medium" "Regular" 
+#bold = { family = "BlexMono NFM", style = "Bold" }
+#italic = { family = "BlexMono NFM", style = "Italic" }
+#bold_italic = { family = "BlexMono NFM", style = "Bold Italic" }
+
 # -- Inconsolata font
 #normal = { family = "Inconsolata NFM", style = "Regular" }  # "Medium" "Regular"
 #bold = { family = "Inconsolata NFM", style = "Bold" }
