@@ -3,7 +3,6 @@
 ####################
 #
 alias nv='nvim ~/.config/'
-alias ide='IDE'
 alias v='vim ~/.config/'
 
 alias vi='vim -c "color default|\
@@ -52,7 +51,7 @@ alias megaman='echo -e "-*- \e[1;31mMegaman\e[0m -*- is: \e[01;32m$USER\e[01;34m
 alias lessupdate='sudo cp -uv /usr/local/bin/less* /usr/bin/&&clear;echo -e "\n\t LESS Updated (>^.K<);sleep 1;clear"'
 #
 alias chmod='chmod -c'
-alias cat='batcat'
+alias cat='batcat --italic-text=always --pager "less -FX"'
 alias cp='cp -uv'
 alias grep='grep -i --color=auto'
 # -- ls version
@@ -93,5 +92,3 @@ if [ -x /usr/bin/dircolors ]; then
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
 fi
-
-#
