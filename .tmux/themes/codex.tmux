@@ -25,11 +25,11 @@ set -g status-right-style  "bold"
 set -g status-right  " ${date_time}${seperate}#[bg=#f5c2e7]#[fg=#11111b]  #[bg=#212234]#[fg=#ff5800] #{pane_index} #[fg=#cdd6f4]of #{window_panes} #[fg=#a6e3a1] ${seperate}"
 
 # -- CURRENT/ACTIVE window
-setw -g window-status-current-style "bold"
+setw -g window-status-current-style "italics bold"
 setw -g window-status-current-format "#[fg=#cdd6f4] #W #[fg=#11111b]#[bg=#fab387] #I #{?window_zoomed_flag,( ),}#{?pane_marked, ,} "
 
 # -- INACTIVE WINDOWS
-setw -g window-status-format "#[fg=#cdd6f4]#[bg=#313244] #W #[fg=#11111b]#[bg=#89b4fa] #I #{?window_zoomed_flag, ,}#{?pane_marked,,} "
+setw -g window-status-format "#[fg=#cdd6f4]#[bg=#313244] #W #[fg=#11111b]#[bg=#89b4fa] #I #{?window_zoomed_flag, ,}#{?pane_marked, ,}"
 
 # -- Left-Status
 set -g status-left "bold"
