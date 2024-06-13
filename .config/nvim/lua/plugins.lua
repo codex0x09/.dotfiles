@@ -25,13 +25,13 @@ local plugins = {
 	"nvim-tree/nvim-web-devicons",
 	---------------------------------------------------------------------------------------
 	-- [[     DASHBOARDS     ]] --
-	{
+	--[[ {
 		"goolord/alpha-nvim",
 		event = "VimEnter",
 		dependencies = {
 			"nvim-tree/nvim-web-devicons",
 		},
-	},
+	}, ]]
 
 	-- [[     THEMES     ]] --
 	--
