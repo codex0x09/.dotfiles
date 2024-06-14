@@ -26,6 +26,17 @@ alias vi='vim -c "color default|\
 #
 alias fire='powershell.exe -c "explorer $1"'
 alias music='powershell.exe -c PotPlayerMini64'
+
+fofile(){
+    firefox.exe --new-tab file://///wsl.localhost/Debian$(pwd)/$1
+    #
+    # it should be improved frist vsit [https://www.geeksforgeeks.org/how-to-launch-firefox-from-linux-terminal/]
+    # this function should be a sparate compuct program in ~/.bin
+    # TODO:
+    # by using switches add more functionality to it:-
+    # like open in new-tab new-window ,etc.
+    # complish this task when migration complitly to linux "windows just SUCKS and GARBAGE"
+}
 #
 #################
 ## phpMyServer ##
