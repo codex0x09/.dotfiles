@@ -7,6 +7,9 @@ set timeoutlen=150
 ""ManPager
 nnoremap <leader>m :Man<space>
 "====================
+"""Toggle Check Spell
+nnoremap <leader>p <cmd>set spell!<cr>
+"====================
 
 ""EScapes
 inoremap jk <ESC>

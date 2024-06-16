@@ -31,4 +31,5 @@ hi! CursorLine cterm=none ctermbg=233
 hi! link CursorColumn CursorLine
 hi! CursorLineNr cterm=bold,italic ctermbg=233 ctermfg=196
 hi! LineNr ctermfg=111 "104  "247  "30 " 23
+hi! SpellBad ctermbg=23 ctermfg=255
 " vim: sw=2

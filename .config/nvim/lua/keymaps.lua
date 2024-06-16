@@ -88,6 +88,9 @@ keymap("n", "jf", ":<C-f>", opts)
 --keymap("v", "<leader>f", "zf", opts)
 --keymap("n", "<leader>a", "za", opts)
 
+-- Toggle Check Spell
+keymap("n", "<leader>p", "<cmd>set spell!<cr>", opts)
+
 -- Remove Cursorline/ Set Cursorline
 keymap("n", "<leader><Space>", "<Cmd>set nocursorline<CR>", opts)
 keymap("n", "<leader>c", "<Cmd>set cursorline<CR>", opts)

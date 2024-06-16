@@ -43,6 +43,8 @@ local plugins = {
 	{ "catppuccin/nvim", name = "catppuccin", priority = 1000 },
 	--  "sainnhe/everforest"
 	-------------------------------------------------------------------
+	-- [[     LiVE SERVER       ]] --
+  { "wolandark/vim-live-server" },
 	-- [[     FILE BROWSERS     ]] --
 	{
 		"nvim-telescope/telescope.nvim",
@@ -66,7 +68,7 @@ local plugins = {
 	},
 	{
 		"akinsho/bufferline.nvim",
-		version = "*",
+		version = "v4.5.*",
 		dependencies = "nvim-tree/nvim-web-devicons",
 	},
 	{
