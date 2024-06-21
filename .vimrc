@@ -19,14 +19,14 @@ runtime! ftplugin/man.vim
 "  |configer #ff6c88 Colors|
 "  `=======================`
 "{{{ Themes :------------------------------JK
-"********* for -->Tokyo-nihgt *************
+"--------- for -->Tokyo-nihgt -------------
 "<<--
 let g:airline_theme = "deep_space"
 "-->>"purify"
-color retrobox "habamax  "tokyonight "codedark "miramare "srcery
+color retrobox "habamax tokyonight codedark miramare srcery
 set background=dark
 "
-"--for Xterm color
+"-- for --> Xterm color
 hi! Comment cterm=italic gui=italic
 "hi! Normal ctermbg=None
 hi! Terminal ctermbg=None
@@ -34,7 +34,8 @@ hi! Terminal ctermbg=None
 hi! EndOfBuffer ctermbg=None
 hi! cursorline cterm=none ctermbg=233  "17 "236
 "hi! cursorlineNr cterm=bold ctermfg=30 ctermbg=234 "235 "233  "17 "236
-hi! MatchParen cterm=reverse cterm=bold ctermfg=199 ctermbg=None gui=bold guifg=#ff00af
+hi! MatchParen cterm=reverse cterm=bold ctermfg=202 ctermbg=None gui=bold guifg=#ff00af
+hi! Special cterm=bold ctermfg=202 ctermbg=None
 hi! VertSplit  cterm=reverse ctermfg=236 ctermbg=234 guifg=#303030 guibg=#1c1c1c
 "hi! Normal ctermfg=255
 "hi! Visual cterm=none ctermbg=202 ctermfg=232
