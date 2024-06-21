@@ -1,3 +1,9 @@
+#################################
+##    Interactive Shell Only   ##
+#################################
+
+[[ $- != *i* ]] && return
+
 ######################################
 ##    Building Prompt & Coloring    ##
 ######################################
@@ -80,7 +86,7 @@ export LESS_TERMCAP_ue=$'\E[0m'                    # reset underline         #
 ######################################
 # -- Vi Mode
 
-# Enable Vi Mode in Interactive Shell
+# Enable Vi Mode
 set -o vi
 
 # Mappings ==> (see) $ help bind
@@ -95,9 +101,6 @@ bind -m vi-insert 'Control-l: clear-screen'
 EDITOR=vi
 ###########################################
 # -- Sourcing
-
-# Add Codex's .bin to Path.
-export PATH="$HOME/.bin:$PATH"
 
 # Alias definitions.
 source ~/.bash_aliases
