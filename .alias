@@ -12,6 +12,11 @@ alias r='sudo xbps-remove -R'
 alias graph='git log --oneline --decorate --graph --all '
 alias graphl='git log --decorate --graph --all '
 
+##########
+##  Vi  ##
+##########
+alias vi='vim -c "color default"'
+
 #####################
 ## System Commands ##
 #####################
@@ -19,8 +24,7 @@ alias chmod='chmod -c'
 alias cat='batcat --italic-text=always --pager "less -FX"'
 alias cp='cp -uv'
 # -- (e)grep
-alias grep='grep -i --color=auto'
-alias egrep='egrep -i --color=auto'
+alias grep='egrep -i --color=auto'
 # -- exa version
 alias el='exa -l'
 alias ell='exa -la'
@@ -28,3 +32,4 @@ alias ell='exa -la'
 alias l='lsd -l'
 alias ll='lsd -la'
 alias ls='lsd'
+
