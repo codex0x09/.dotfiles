@@ -1,0 +1,30 @@
+################
+##    XBPS    ##
+################
+alias i'sudo xbps-install -S'
+alias u='i; sudo xbps-install -u xbps; sudo xbps-install -u'
+alias q='sudo xbps-query -Rs'
+alias r='sudo xbps-remove -R'
+
+##################
+## Git Commands ##
+##################
+alias graph='git log --oneline --decorate --graph --all '
+alias graphl='git log --decorate --graph --all '
+
+#####################
+## System Commands ##
+#####################
+alias chmod='chmod -c'
+alias cat='batcat --italic-text=always --pager "less -FX"'
+alias cp='cp -uv'
+# -- (e)grep
+alias grep='grep -i --color=auto'
+alias egrep='egrep -i --color=auto'
+# -- exa version
+alias el='exa -l'
+alias ell='exa -la'
+# -- lsd version
+alias l='lsd -l'
+alias ll='lsd -la'
+alias ls='lsd'
