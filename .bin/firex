@@ -1,0 +1,12 @@
+#!/bin/bash
+
+fofile(){
+    firefox --new-tab file://$(pwd)/$1
+    #
+    # it should be improved frist vsit [https://www.geeksforgeeks.org/how-to-launch-firefox-from-linux-terminal/]
+    # this function should be a sparate compuct program in ~/.bin
+    # TODO:
+    # by using switches add more functionality to it:-
+    # like open in new-tab new-window ,etc.
+    # complish this task when migration complitly to linux "windows just SUCKS and GARBAGE"
+}
