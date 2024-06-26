@@ -11,7 +11,7 @@
 # Git
 git_prompt()
 {
-	local branch="$(git symbolic-ref HEAD 2> /dev/null | cut -d'/' -f3)"
+	local branch="$(git symbolic-ref --short HEAD 2> /dev/null)"
 	local branch_truncated="${branch:0:30}"
 	if (( ${#branch} > ${#branch_truncated} )); then
 		branch="${branch_truncated}..."
@@ -49,7 +49,7 @@ codexPs(){
 	PS1="$(diagnostic)"
 	PS1+=" $(arrow)"
 	PS1+=" $(print_dir)"
-	PS1+="$(git_prompt)"
+	[ -d .git ] && PS1+="$(git_prompt)" # Increase the speed
 	PS1+=" $(end) "
 }
 PROMPT_COMMAND=codexPs  #the PS1
@@ -103,10 +103,11 @@ EDITOR=vi
 # -- Sourcing
 
 # Alias definitions.
-source ~/.bash_aliases
+#[[ -f ~/.aliases ]] && source ~/.aliases
+[[ -f ~/.debian ]] && source ~/.debian
 
 # Enable Completion.
-source /etc/profile.d/bash_completion.sh
+[[ -f /etc/profile.d/bash_completion.sh ]] && source /etc/profile.d/bash_completion.sh
 ###########################################
 # -- Shell [Bash] Options
 
