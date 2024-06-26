@@ -19,48 +19,40 @@ runtime! ftplugin/man.vim
 "  |configer #ff6c88 Colors|
 "  `=======================`
 "{{{ Themes :------------------------------JK
-"--------- for -->Tokyo-nihgt -------------
-"<<--
-let g:airline_theme = "deep_space"
-"-->>"purify"
-color retrobox "habamax tokyonight codedark miramare srcery
+"
+colorscheme retrobox "deus habamax tokyonight codedark miramare srcery
 set background=dark
 "
-"-- for --> Xterm color
+" * convert Xterm color into gui hex values
+" * then use tgc to enable gui color support
+" set termguicolors
+"
+" -- Airline
+let g:airline_theme = "deep_space"
+"<<--
+"
+"-- Enhancing Themes
+" Italics
 hi! Comment cterm=italic gui=italic
-"hi! Normal ctermbg=None
-hi! Terminal ctermbg=None
-"hi! LineNr ctermfg=30 " 23
-hi! EndOfBuffer ctermbg=None
-hi! cursorline cterm=none ctermbg=233  "17 "236
-"hi! cursorlineNr cterm=bold ctermfg=30 ctermbg=234 "235 "233  "17 "236
-hi! MatchParen cterm=reverse cterm=bold ctermfg=202 ctermbg=None gui=bold guifg=#ff00af
-hi! Special cterm=bold ctermfg=202 ctermbg=None
-hi! VertSplit  cterm=reverse ctermfg=236 ctermbg=234 guifg=#303030 guibg=#1c1c1c
-"hi! Normal ctermfg=255
-"hi! Visual cterm=none ctermbg=202 ctermfg=232
+" <<--
 hi! Search cterm=none ctermbg=202 ctermfg=233
 hi! CurSearch cterm=none ctermbg=9 ctermfg=232
-hi! CursorLine cterm=none ctermbg=233
-"
+hi! cursorline cterm=none ctermbg=233  "17 "236
+hi! MatchParen cterm=reverse cterm=bold ctermfg=202 ctermbg=None gui=bold guifg=#ff00af
+hi! Special cterm=bold ctermfg=202 ctermbg=None
+hi! VertSplit cterm=reverse ctermfg=236 ctermbg=234 guifg=#303030 guibg=#1c1c1c
+hi! EndOfBuffer ctermbg=None
+" Line Number
+"hi! LineNr ctermfg=30 " 23
 "hi! lineNrAbove
 "hi! CursorLineNr
 "hi! LineNrBelow
-"
-"******************************************
-" {#00005f = 17 Xterm-number}   ctermfg=202
-"******************************************
-"color ayu
-"color desert
-"color onedark
-"color elflord
-"color srcery
-"color miramare
-"color codedark
-"colorscheme purify
-"colorscheme gruvbox
-"colorscheme vimbrains
-"colorscheme jellybeans
-"colorscheme desert-night
-"##############################
+" <<--
+" Transparency
+"hi! Normal ctermbg=None
+"hi! Terminal ctermbg=None
+" <<--
+"hi! cursorlineNr cterm=bold ctermfg=30 ctermbg=234 "235 "233  "17 "236
+"hi! Normal ctermfg=255
+"hi! Visual cterm=none ctermbg=202 ctermfg=232
 "}}}
