@@ -22,7 +22,7 @@ date_time="#[bg=#cba6f7]#[fg=#11111b] Time #[bg=#212234]#[fg=#cdd6f4] %H:%M %A %
 
 # -- Right-Status
 set -g status-right-style  "bold"
-set -g status-right  " ${date_time}${seperate}#[bg=#f5c2e7]#[fg=#11111b]  #[bg=#212234]#[fg=#ff5800] #{pane_index} #[fg=#cdd6f4]of #{window_panes} #[fg=#a6e3a1] ${seperate}"
+set -g status-right  " #[bg=#f5c2e7]#[fg=#11111b]  #[bg=#212234]#[fg=#ff5800] #{pane_index} #[fg=#cdd6f4]of #{window_panes} #[fg=#a6e3a1] ${seperate}${date_time} ${seperate}"
 
 # -- CURRENT/ACTIVE window
 setw -g window-status-current-style "italics bold"
