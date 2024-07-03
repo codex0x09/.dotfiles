@@ -4,7 +4,7 @@
 "TODO: Hints `(>^.^<)` vim
 "
 " --> leader = <Space> , --> jk = <Esc> , --> <Space>' = vim_config_Tree
-"
+" --> gf = on any the following file name, it'll open that file, gf (goto file), see :h gf
 source ~/.vim/codex/options.vim
 source ~/.vim/codex/keybindings.vim
 source ~/.vim/codex/plugins_Config.vim
@@ -20,7 +20,8 @@ runtime! ftplugin/man.vim
 "  `=======================`
 "{{{ Themes :------------------------------JK
 "
-colorscheme retrobox "deus habamax tokyonight codedark miramare srcery
+colorscheme deus "retrobox  habamax tokyonight codedark miramare srcery
+set tgc
 set background=dark
 "
 " * convert Xterm color into gui hex values
@@ -38,7 +39,7 @@ hi! Comment cterm=italic gui=italic
 hi! Search cterm=none ctermbg=202 ctermfg=233
 hi! CurSearch cterm=none ctermbg=9 ctermfg=232
 hi! cursorline cterm=none ctermbg=233  "17 "236
-hi! MatchParen cterm=reverse cterm=bold ctermfg=202 ctermbg=None gui=bold guifg=#ff00af
+hi! MatchParen cterm=reverse cterm=bold ctermfg=202 ctermbg=None gui=bold guifg=#ff6000 guibg=NONE 
 hi! Special cterm=bold ctermfg=202 ctermbg=None
 hi! VertSplit cterm=reverse ctermfg=236 ctermbg=234 guifg=#303030 guibg=#1c1c1c
 hi! EndOfBuffer ctermbg=None
