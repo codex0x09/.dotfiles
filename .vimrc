@@ -20,7 +20,7 @@ runtime! ftplugin/man.vim
 "  `=======================`
 "{{{ Themes :------------------------------JK
 "
-colorscheme deus "retrobox  habamax tokyonight codedark miramare srcery
+colorscheme retrobox "deus retrobox  habamax tokyonight codedark miramare srcery
 set tgc
 set background=dark
 "

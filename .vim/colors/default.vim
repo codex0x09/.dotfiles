@@ -20,16 +20,18 @@ if exists("syntax_on")
 endif
 
 let colors_name = "default"
+set notgc 
 
 "Hi there (>^.^<) Codex's here <3
-hi! Comment cterm=italic gui=italic
+hi! Comment cterm=italic gui=italic guifg=#8373b3
 hi! Search cterm=none ctermfg=233 ctermbg=202
 hi! Visual cterm=none ctermfg=232 ctermbg=202
 hi! VertSplit cterm=reverse ctermfg=236 ctermbg=234 guifg=#303030 guibg=#1c1c1c
 hi! CurSearch cterm=none ctermbg=9 ctermfg=232
-hi! CursorLine cterm=none ctermbg=233
+hi! CursorLine cterm=none ctermbg=233 guibg=#151515
 hi! link CursorColumn CursorLine
 hi! CursorLineNr cterm=bold,italic ctermbg=233 ctermfg=196
 hi! LineNr ctermfg=111 "104  "247  "30 " 23
 hi! SpellBad ctermbg=23 ctermfg=255
+hi! EndOfBuffer guifg=#40a0a0
 " vim: sw=2
