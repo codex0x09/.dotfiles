@@ -1,7 +1,6 @@
 # -- dirs --#
 .tmux/plugins
-.tmux/codex_Lab
-.config/zellij_lab
+#.tmux/codex_Lab
 .vim/autoload/plugged
 .config/Alacritty
 .w3m/
