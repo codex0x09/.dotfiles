@@ -10,9 +10,11 @@ source ~/.vim/codex/keybindings.vim
 source ~/.vim/codex/plugins_Config.vim
 source ~/.vim/codex/vim_plug.vim
 "
+"########## Built-In Like #############
 "Enabling Man Page in vim `(>^.^<)` vim
 runtime! ftplugin/man.vim
-"
+"Enhancing Bourne-Shell(.sh) ft color by set ft to Bash(.bash)
+au! BufRead *.sh set ft=bash
 "############################################################################
 
 "  .=======================.
