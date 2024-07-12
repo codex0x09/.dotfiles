@@ -4,5 +4,8 @@
 .config/zellij_lab
 .vim/autoload/plugged
 .config/Alacritty
+.w3m/
 # -- files --#
-.w3m/history
+# -- exceptions --#
+!.w3m/config
+
