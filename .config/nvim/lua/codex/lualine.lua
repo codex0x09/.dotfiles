@@ -1,3 +1,18 @@
+-- cool function for progress
+local vprogress = function()
+  local current_line = vim.fn.line(".")
+
+  local total_lines = vim.fn.line("$")
+
+  local chars = { "__", "▁▁", "▂▂", "▃▃", "▄▄", "▅▅", "▆▆", "▇▇", "██" }
+
+  local line_ratio = current_line / total_lines
+
+  local index = math.ceil(line_ratio * #chars)
+
+  return chars[index]
+end
+
 --[[===================================    CONFIGRATIONS    ===================================]]
 -- the themes in ./codex/themes/lualine_themes.lua
 local theme = require("codex.themes.lualine_themes")
@@ -74,7 +89,7 @@ require("lualine").setup({
 			"fileformat",
 			"encoding",
 		},
-		lualine_y = { "progress" },
+		lualine_y = { "progress", vprogress },
 		lualine_z = { "location" },
 	},
 	inactive_sections = {
