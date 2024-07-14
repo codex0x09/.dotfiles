@@ -8,7 +8,42 @@
 ##    Building Prompt & Coloring    ##
 ######################################
 
-# Git
+#############   Git   ################
+
+# using array version to Boost the speed
+git_state() {
+    # remote name
+    local remote_name=$(git remote --no-verbose 2> /dev/null)
+    [ -z $remote_name ] && printf "{\[\033[3;32m\]\[\033[00m\]}" && return
+
+    # instead of recreate branch var, use that comes from 'git_prompt' as argument branch="$1"
+    #branch="$(git symbolic-ref --short HEAD 2> /dev/null)"
+    branch="$1"
+
+    # local's commits ahead/behind remote, let it to be an array for the first shot. version-2
+    local local_status=($(git rev-list --count --left-right $remote_name/$branch...HEAD 2> /dev/null))
+
+    # what $cps stands for ?! Is commit_prompt_status \_('.')_/ forgetness?! I just name it 'cps'  :)  
+    local cps=""
+    if [[ -n ${local_status[*]} ]]
+    then
+        if (( ${local_status[0]} == 0 && ${local_status[1]} != 0 ))
+        then
+            cps="\[\033[1;3;32m ${local_status[1]}\[\033[00m\]"
+        elif (( ${local_status[0]} == 0 && ${local_status[1]} == 0 ))
+        then
+            cps="\[\033[3;32m\]\[\033[00m\]"
+        elif (( ${local_status[0]} != 0 && ${local_status[1]} == 0 ))
+        then
+            cps="\[\033[1;3;31m\]${local_status[0]} \[\033[00m\]"
+        else
+            cps="\[\033[1;38;5;208m\]${local_status[0]}  ${local_status[1]}\[\033[00m\]"
+        fi
+        printf "{$cps}"
+    fi
+    return
+}
+
 git_prompt()
 {
 	local branch="$(git symbolic-ref --short HEAD 2> /dev/null)"
@@ -16,12 +51,9 @@ git_prompt()
 	if (( ${#branch} > ${#branch_truncated} )); then
 		branch="${branch_truncated}..."
 	fi
-	[ -n "${branch}" ] && printf "\[\033[1;2;91m\]:(${branch})\[\033[00m\]"
+	[ -n "${branch}" ] && printf "\[\033[1;2;91m\]:(${branch})\[\033[00m\]$(git_state $branch)"
 }
 
-#TODO: see Bash wiki (arch wiki very helpful) , search in the page for 'Right-justified text'
-# I've turned every thing into function, but bash can't Calc string length </3
-# if I use \[---\] length will be ignore cool, but it works only in ps1 itself not in function and this is the issue
 
 # PS1
 arrow(){
@@ -132,83 +164,3 @@ HISTSIZE=500
 
 # don't save duplicate lines or lines starting with space.
 export HISTCONTROL=ignoreboth:erasedups
-
-
-
-##############################  codex Lab   #####################################
-#              sould remove them, after backup with 1st commit
- 
-# using vars
-version_1() {
-# need to get remote name i.e origin ?
-remote_name=$(git remote --no-verbose)
-
-# local's commits ahead/behind remote, let it to be an array for the first shot. version-2
-# local_status=("$(git rev-list --count ${remote_name}...HEAD 2> /dev/null)")
-#
-# remote name
-local remote_name=$(git remote --no-verbose 2> /dev/null)
-[ -z $remote_name ] && printf "{\[\033[3;32m\]\[\033[00m\]}" && return
-
-    # instead of recreate branch var, use that comes from git_prompt as argument branch="$1"
-    branch="$(git symbolic-ref --short HEAD 2> /dev/null)"
-    #
-# local_status can be simple var, and using 'cut -d' ' -f 1 and 2', test the tow versions with the time cmd. version-1
-    local local_status=($(git rev-list --count --left-right $remote_name/$branch...HEAD 2> /dev/null))
-
-local local_ahead=$(echo $local_status | cut -d' ' -f 2)
-local local_behind=$(echo $local_status | cut -d' ' -f 1)
-
-    local cps=""
-    if [[ -n ${local_status[*]} ]]
-    then
-        if (( ${local_status[0]} == 0 && ${local_status[1]} != 0 ))
-        then
-            cps="\[\033[1;3;32m ${local_status[1]}\[\033[00m\]"
-        elif (( ${local_status[0]} == 0 && ${local_status[1]} == 0 ))
-        then
-            cps="\[\033[3;32m\]\[\033[00m\]"
-        elif (( ${local_status[0]} != 0 && ${local_status[1]} == 0 ))
-        then
-            cps="\[\033[1;3;31m\]${local_status[0]} \[\033[00m\]"
-        else
-            cps="\[\033[1;38;5;208m\]${local_status[0]}  ${local_status[1]}\[\033[00m\]"
-        fi
-        printf "{$cps}"
-    fi
-    return
-}
-
-
-# using array version to Boost the speed
-git_state() {
-    # remote name
-    local remote_name=$(git remote --no-verbose 2> /dev/null)
-    [ -z $remote_name ] && printf "{\[\033[3;32m\]\[\033[00m\]}" && return
-        
-    # instead of recreate branch var, use that comes from git_prompt as argument branch="$1"
-    branch="$(git symbolic-ref --short HEAD 2> /dev/null)"
-
-    # local's commits ahead/behind remote, let it to be an array for the first shot. version-2
-    local local_status=($(git rev-list --count --left-right $remote_name/$branch...HEAD 2> /dev/null))
-
-    # what $cps stands for ?! Is commit_prompt_status \_('.')_/ ??! I just name it 'cps'  :)  
-    local cps=""
-    if [[ -n ${local_status[*]} ]]
-    then
-        if (( ${local_status[0]} == 0 && ${local_status[1]} != 0 ))
-        then
-            cps="\[\033[1;3;32m ${local_status[1]}\[\033[00m\]"
-        elif (( ${local_status[0]} == 0 && ${local_status[1]} == 0 ))
-        then
-            cps="\[\033[3;32m\]\[\033[00m\]"
-        elif (( ${local_status[0]} != 0 && ${local_status[1]} == 0 ))
-        then
-            cps="\[\033[1;3;31m\]${local_status[0]} \[\033[00m\]"
-        else
-            cps="\[\033[1;38;5;208m\]${local_status[0]}  ${local_status[1]}\[\033[00m\]"
-        fi
-        printf "{$cps}"
-    fi
-    return
-}
