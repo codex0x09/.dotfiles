@@ -16,11 +16,11 @@ git_state() {
     local remote_name=$(git remote --no-verbose 2> /dev/null)
     [ -z $remote_name ] && printf "{\[\033[3;32m\]\[\033[00m\]}" && return
 
-    # instead of recreate branch var, use that comes from 'git_prompt' as argument branch="$1"
-    #branch="$(git symbolic-ref --short HEAD 2> /dev/null)"
+    # instead of recreating branch var, use that comes from 'git_prompt' as argument branch="$1".
+    # branch="$(git symbolic-ref --short HEAD 2> /dev/null)"
     local branch="$1"
 
-    # local's commits ahead/behind remote, let it to be an array for the first shot. version-2
+    # local's commits ahead/behind remote, let it to be an array for more efficiency.
     local local_status=($(git rev-list --count --left-right $remote_name/$branch...HEAD 2> /dev/null))
 
     # what $cps stands for ?! Is commit_prompt_status \_('.')_/ forgetness?! I just name it 'cps'  :)  
