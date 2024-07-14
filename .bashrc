@@ -18,7 +18,7 @@ git_state() {
 
     # instead of recreate branch var, use that comes from 'git_prompt' as argument branch="$1"
     #branch="$(git symbolic-ref --short HEAD 2> /dev/null)"
-    branch="$1"
+    local branch="$1"
 
     # local's commits ahead/behind remote, let it to be an array for the first shot. version-2
     local local_status=($(git rev-list --count --left-right $remote_name/$branch...HEAD 2> /dev/null))
