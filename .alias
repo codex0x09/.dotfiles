@@ -15,7 +15,7 @@ alias graphl='git log --decorate --graph --all '
 ##########
 ##  Vi  ##
 ##########
-alias vi='vim -c "color default"'
+alias vi='vim -c "color desert"'
 
 #####################
 ## System Commands ##
