@@ -1,0 +1,5 @@
+set completion-ignore-case On
+# color what is typed and not
+set colored-completion-prefix On
+# color like 'ls' to distinguish files/dirs
+set colored-stats On
