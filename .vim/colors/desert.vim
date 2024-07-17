@@ -49,8 +49,7 @@ hi Visual guifg=#f0e68c guibg=#6b8e24 gui=NONE cterm=NONE
 hi VisualNOS guifg=#f0e68c guibg=#6dceeb gui=NONE cterm=NONE
 hi LineNr guifg=#eeee00 guibg=NONE gui=NONE cterm=NONE
 hi FoldColumn guifg=#eeee00 guibg=#4d4d4d gui=NONE cterm=NONE
-"hi CursorColumn guifg=NONE guibg=#666666 gui=NONE cterm=NONE
-hi CursorLine guifg=NONE guibg=#222222 gui=NONE cterm=NONE
+hi CursorColumn guifg=NONE guibg=#666666 gui=NONE cterm=NONE
 hi CursorLineNr guifg=#eeee00 guibg=NONE gui=bold cterm=bold
 hi QuickFixLine guifg=#333333 guibg=#f0e68c gui=NONE cterm=NONE
 hi SignColumn guifg=NONE guibg=NONE gui=NONE ctermfg=NONE ctermbg=NONE cterm=NONE
