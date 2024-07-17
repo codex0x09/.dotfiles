@@ -12,6 +12,8 @@
 " hi lineNr cterm=none ctermfg=17 (?)
 " hi! CursorLineNr cterm=bold,italic ctermbg=233 ctermfg=196 (?)
 " hi! LineNr ctermfg=111 "104  "247  "30 " 23 (?)
+" hi! LineNrAbove ctermfg=111 "104  "247  "30 " 23 (?)
+" hi! LineNrBelow ctermfg=111 "104  "247  "30 " 23 (?)
 " hi NonText ctermbg=238
 " hi link EndOfBuffer NonText
 " hi! EndOfBuffer guifg=#40a0a0 (?)
@@ -24,7 +26,7 @@
 set background=dark
 
 hi clear
-let g:colors_name = 'desert'
+let g:colors_name = 'desertx'
 
 let s:t_Co = has('gui_running') ? -1 : (&t_Co ?? 0)
 
@@ -40,7 +42,7 @@ hi! link CursorLineSign CursorLine
 hi! link EndOfBuffer NonText
 hi! link MessageWindow Pmenu
 hi! link PopupNotification Todo
-hi Normal guifg=#ffffff guibg=#333333 gui=NONE cterm=NONE
+hi Normal guifg=#ffffff guibg=#2b2b2b gui=NONE cterm=NONE
 hi StatusLine guifg=#333333 guibg=#c2bfa5 gui=NONE cterm=NONE
 hi StatusLineNC guifg=#7f7f8c guibg=#c2bfa5 gui=NONE cterm=NONE
 hi StatusLineTerm guifg=#333333 guibg=#c2bfa5 gui=NONE cterm=NONE
@@ -55,16 +57,16 @@ hi TabLineFill guifg=NONE guibg=#c2bfa5 gui=NONE cterm=NONE
 hi TabLineSel guifg=#333333 guibg=#f0e68c gui=NONE cterm=NONE
 hi ToolbarLine guifg=NONE guibg=#666666 gui=NONE cterm=NONE
 hi ToolbarButton guifg=#333333 guibg=#ffde9b gui=bold cterm=bold
-hi NonText guifg=#6dceeb guibg=#4d4d4d gui=NONE cterm=NONE
+hi NonText guifg=#6dceeb guibg=#484848 gui=NONE cterm=NONE
 hi SpecialKey guifg=#9acd32 guibg=NONE gui=NONE cterm=NONE
 hi Folded guifg=#eeee00 guibg=#4d4d4d gui=NONE cterm=NONE
 hi Visual guifg=#f0e68c guibg=#6b8e24 gui=NONE cterm=NONE
 hi VisualNOS guifg=#f0e68c guibg=#6dceeb gui=NONE cterm=NONE
 hi LineNr guifg=#eeee00 guibg=NONE gui=NONE cterm=NONE
 hi FoldColumn guifg=#eeee00 guibg=#4d4d4d gui=NONE cterm=NONE
-hi CursorLine guifg=NONE guibg=#666666 gui=NONE cterm=NONE
-hi CursorColumn guifg=NONE guibg=#666666 gui=NONE cterm=NONE
-hi CursorLineNr guifg=#eeee00 guibg=NONE gui=bold cterm=bold
+hi CursorLine guifg=NONE guibg=#353535 gui=NONE cterm=NONE
+hi CursorColumn guifg=NONE guibg=#5f5f5f gui=NONE cterm=NONE
+hi CursorLineNr guifg=#ffa000 guibg=NONE gui=bold cterm=bold
 hi QuickFixLine guifg=#333333 guibg=#f0e68c gui=NONE cterm=NONE
 hi SignColumn guifg=NONE guibg=NONE gui=NONE ctermfg=NONE ctermbg=NONE cterm=NONE
 hi Underlined guifg=#75a0ff guibg=NONE gui=underline cterm=underline
@@ -92,7 +94,7 @@ hi Comment guifg=#6dceeb guibg=NONE gui=NONE cterm=NONE
 hi Identifier guifg=#89fb98 guibg=NONE gui=NONE cterm=NONE
 hi Statement guifg=#f0e68c guibg=NONE gui=bold cterm=bold
 hi Constant guifg=#ffa0a0 guibg=NONE gui=NONE cterm=NONE
-hi PreProc guifg=#cd5c5c guibg=NONE gui=NONE cterm=NONE
+hi PreProc guifg=#ef5f5f "#cd5c5c guibg=NONE gui=NONE cterm=NONE
 hi Type guifg=#bdb76b guibg=NONE gui=bold cterm=bold
 hi Special guifg=#ffde9b guibg=NONE gui=NONE cterm=NONE
 hi Directory guifg=#6dceeb guibg=NONE gui=NONE cterm=NONE
