@@ -9,8 +9,8 @@ alias r='sudo xbps-remove -R'
 ##################
 ## Git Commands ##
 ##################
-alias graph='git log --oneline --decorate --graph --all '
-alias graphl='git log --decorate --graph --all '
+alias graph='git log --oneline --decorate --graph --all'
+alias graphl='git log --decorate --graph --all'
 
 ##########
 ##  Vi  ##
@@ -21,6 +21,7 @@ alias vi='vim -c "color desert"'
 ## System Commands ##
 #####################
 alias chmod='chmod -c'
+alias c='clear' # -- specially when using tmux
 alias cat='batcat --italic-text=always --pager "less -FX"'
 alias cp='cp -uv'
 # -- (e)grep
@@ -38,7 +39,7 @@ alias ls='lsd'
 ##  Web Browser  ##
 ###################
 xfire(){
-    firefox --new-tab file://$(pwd)/$1
+    firefox.exe --new-tab file://///$(pwd)/$1
     #
     # it should be improved frist vsit [https://www.geeksforgeeks.org/how-to-launch-firefox-from-linux-terminal/]
     # this function should be a sparate compuct program in ~/.bin
