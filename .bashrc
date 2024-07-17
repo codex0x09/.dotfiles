@@ -63,9 +63,9 @@ separator(){
 diagnostic(){
 	local last_state=$?
 	case $last_state in
-		0) printf "\[\033[32m\]\[\033[00m\](\[\033[00m\]\[\033[38;5;214m\]\[\033[3m\]$last_state\[\033[00m\])" ;;
-		1) printf "\[\033[31m\]\[\033[00m\](\[\033[00m\]\[\033[38;5;214m\]\[\033[3m\]$last_state\[\033[00m\])" ;;
-		*) printf "\[\033[38;5;208m\]\[\033[00m\](\[\033[38;5;214m\]\[\033[3m\]$last_state\[\033[00m\])";;
+		0) printf "\[\033[32m\] \[\033[00m\](\[\033[00m\]\[\033[38;5;214m\]\[\033[3m\]$last_state\[\033[00m\])" ;;
+		1) printf "\[\033[31m\] \[\033[00m\](\[\033[00m\]\[\033[38;5;214m\]\[\033[3m\]$last_state\[\033[00m\])" ;;
+		*) printf "\[\033[38;5;208m\] \[\033[00m\](\[\033[38;5;214m\]\[\033[3m\]$last_state\[\033[00m\])";;
 	esac
 }
 print_dir(){
@@ -77,9 +77,9 @@ end(){
 
 #it works well!!
 codexPs(){
-	PS1="$(diagnostic)"
-	PS1+=" $(separator)"
-	PS1+=" $(print_dir)"
+	PS1="$(diagnostic) "
+	PS1+="$(separator) "
+	PS1+="$(print_dir)"
 	[ -d .git ] && PS1+="$(git_prompt)" # Increase the speed
 	PS1+=" $(end) "
 }
