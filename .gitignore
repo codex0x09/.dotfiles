@@ -1,9 +1,11 @@
 # -- dirs --#
-.tmux/plugins
-#.tmux/codex_Lab
-.vim/autoload/plugged
-.config/Alacritty
 .w3m/
+.tmux/plugins
+.config/Alacritty
+.vim/autoload/plugged
+.config/ranger/plugins/__pycache__
+.config/ranger/colorschemes/__pycache__
+.config/ranger/colorschemes/__pycache__
 # -- files --#
 # -- exceptions --#
 !.w3m/config
