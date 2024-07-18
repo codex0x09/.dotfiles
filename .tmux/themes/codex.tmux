@@ -31,6 +31,8 @@ setw -g window-status-current-format "#[fg=#cdd6f4] #W #[fg=#11111b]#[bg=#fab387
 # -- INACTIVE WINDOWS
 setw -g window-status-format "#[fg=#cdd6f4]#[bg=#313244] #W #[fg=#11111b]#[bg=#89b4fa] #I #{?window_zoomed_flag, ,}#{?pane_marked, ,}"
 
+# -- set stauts left length
+set -g status-left-length 40
 # -- Left-Status
 set -g status-left "bold"
 set -g status-left "#[fg=#11111b]█#[bg=#212234]#[fg=#cdd6f4] #S #{?client_prefix,#[bg=#f38ba8]#[fg=#000000],#[bg=#a6e3a1]#[fg=#000000]}  #[fg=#11111b]█"
