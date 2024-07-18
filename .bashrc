@@ -57,7 +57,7 @@ git_prompt()
 
 # PS1
 separator(){
-	printf "\[\033[38;5;202m\]\[\033[00m\]"
+	printf "\[\033[38;5;208m\]\[\033[00m\]"
 }
 
 diagnostic(){
