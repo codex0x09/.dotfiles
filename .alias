@@ -26,16 +26,13 @@ alias cat='batcat --italic-text=always --pager "less -FX"'
 alias cp='cp -uv'
 # -- (e)grep
 alias grep='egrep -i --color=auto'
-# -- tree
-alias tre='tree -C'
-# -- exa version
-alias el='exa -l'
-alias ell='exa -la'
-# -- lsd version
-alias l='lsd -l'
-alias ll='lsd -la'
-alias ls='lsd'
-
+# -- exa -- see --help
+alias ls='exa --color=always --icons --git'
+alias l='ls -l'
+alias ll='ls -la'
+# -- exa does tree
+alias lt='ls -a --tree --level=2'
+alias llt='ls -al --tree --level=2'
 
 ###################
 ##  Web Browser  ##
