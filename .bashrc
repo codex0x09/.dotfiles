@@ -1,6 +1,6 @@
-#################################
-##    Interactive Shell Only   ##
-#################################
+######################################
+##      Interactive Shell Only      ##
+######################################
 
 [[ $- != *i* ]] && return
 
@@ -14,7 +14,7 @@
 git_state() {
     # remote name
     local remote_name=$(git remote --no-verbose 2> /dev/null)
-    [ -z $remote_name ] && printf "{\[\033[3;32m\]\[\033[00m\]}" && return
+    [ -z $remote_name ] && printf "\[\033[3;36m\]\[\033[00m\]" && return
 
     # instead of recreating branch var, use that comes from 'git_prompt' as argument branch="$1".
     # branch="$(git symbolic-ref --short HEAD 2> /dev/null)"
@@ -29,88 +29,69 @@ git_state() {
     then
         if (( ${local_status[0]} == 0 && ${local_status[1]} != 0 ))
         then
-            cps="\[\033[1;3;32m ${local_status[1]}\[\033[00m\]"
+            cps="\[\033[1;3;32m\] ${local_status[1]}\[\033[00m\]"
         elif (( ${local_status[0]} == 0 && ${local_status[1]} == 0 ))
         then
-            cps="\[\033[3;32m\]\[\033[00m\]"
+            cps="\[\033[3;36m\]\[\033[00m\]"
         elif (( ${local_status[0]} != 0 && ${local_status[1]} == 0 ))
         then
             cps="\[\033[1;3;31m\]${local_status[0]} \[\033[00m\]"
         else
             cps="\[\033[1;38;5;208m\]${local_status[0]}  ${local_status[1]}\[\033[00m\]"
         fi
-        printf "{$cps}"
+        printf "$cps"
     fi
     return
 }
 
 git_prompt()
 {
-	local branch="$(git symbolic-ref --short HEAD 2> /dev/null)"
-	local branch_truncated="${branch:0:30}"
-	if (( ${#branch} > ${#branch_truncated} )); then
-		branch="${branch_truncated}..."
-	fi
-	[ -n "${branch}" ] && printf "\[\033[1;2;91m\]:(${branch})\[\033[00m\]$(git_state $branch)"
+    local branch="$(git symbolic-ref --short HEAD 2> /dev/null)"
+    local branch_truncated="${branch:0:30}"
+    if (( ${#branch} > ${#branch_truncated} )); then
+        branch="${branch_truncated}..."
+    fi
+    [ -n "${branch}" ] && printf "\[\033[1;2;91m\]:(${branch})\[\033[00m\]$(git_state $branch)"
 }
 
-
-# PS1
-separator(){
-	printf "\[\033[38;5;208m\]\[\033[00m\]"
+ownership(){
+    if [[ "$(stat --format "%G" .)" == "$(printf $USER)" ]]
+    then
+        printf "\[\033[1;36m\]\[\033[00m\]"
+    else
+        printf "\[\033[1;31m\]\[\033[00m\]"
+    fi
 }
 
 diagnostic(){
-	local last_state=$?
-	case $last_state in
-		0) printf "\[\033[32m\] \[\033[00m\](\[\033[00m\]\[\033[38;5;214m\]\[\033[3m\]$last_state\[\033[00m\])" ;;
-		1) printf "\[\033[31m\] \[\033[00m\](\[\033[00m\]\[\033[38;5;214m\]\[\033[3m\]$last_state\[\033[00m\])" ;;
-		*) printf "\[\033[38;5;208m\] \[\033[00m\](\[\033[38;5;214m\]\[\033[3m\]$last_state\[\033[00m\])";;
-	esac
+    local last_state=$?
+    case $last_state in
+        0) printf "\[\033[32m\]\[\033[90m\](\[\033[00m\]\[\033[32m\]\[\033[3m\]$last_state\[\033[90m\])\[\033[00m\]" ;;
+        1) printf "\[\033[31m\]\[\033[90m\](\[\033[00m\]\[\033[31m\]\[\033[3m\]$last_state\[\033[90m\])\[\033[00m\]" ;;
+        *) printf "\[\033[38;5;208m\]\[\033[90m\](\[\033[1;38;5;214m\]\[\033[3m\]$last_state\[\033[90m\])\[\033[00m\]" ;;
+    esac
 }
 print_dir(){
-	printf "\[\033[01;3;34m\]\W\[\033[m\]"
+    printf "\[\033[01;3;34m\]\W\[\033[m\]"
 }
 end(){
-	printf "\[\033[1;37m\]$\[\033[m\]"
+    printf " \[\033[1;91m\]\[\033[m\] "
+    #printf " \[\033[1;91m\] \[\033[m\]"
+    #printf " \[\033[1;97m\]\[\033[m\] "
+    #printf " \[\033[1;37m\]»\[\033[m\] "
 }
 
 #it works well!!
 codexPs(){
-	PS1="$(diagnostic) "
-	PS1+="$(separator) "
-	PS1+="$(print_dir)"
-	[ -d .git ] && PS1+="$(git_prompt)" # Increase the speed
-	PS1+=" $(end) "
+    PS1="$(diagnostic) "
+    PS1+="$(ownership) "
+    PS1+="$(print_dir)"
+    [ -d .git ] && PS1+="$(git_prompt)" # Increase the speed
+    PS1+="$(end)"
 }
 PROMPT_COMMAND=codexPs  #the PS1
-###############################################################################################
+##############################################################
 
-# -- Coloring GCC & LESS and set less'Options
-
-# coloring GCC warnings and errors
-export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
-
-# -- set less variable
-export LESS="-g -i -J -M -s -w -z-4 --raw-control-chars --tabs=2 --incsearch --status-line"
-
-# make less more friendly for non-text input files, see lesspipe(1)
-[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
-
-##############################################################################
-#                      ###// Coloring Less ###//                             #
-##############################################################################
-export LESS_TERMCAP_AF=$'\E[1;92m'                 # normal text             #
-export LESS_TERMCAP_mb=$'\E[1;93m'                 # begin blink             #
-export LESS_TERMCAP_md=$'\E[1;36m'                 # begin bold              #
-export LESS_TERMCAP_me=$'\E[0m'                    # reset bold/blink        #
-export LESS_TERMCAP_so=$'\E[1;6;38;5;232;48;5;166m' # Status bar and hlsearch #
-export LESS_TERMCAP_se=$'\E[0m'                    # reset reverse video     #
-export LESS_TERMCAP_us=$'\E[1;91m'                 # begin underline         #
-export LESS_TERMCAP_ue=$'\E[0m'                    # reset underline         #
-##############################################################################
-
-###############################################################################################
 
 ######################################
 ##    Command Line Interface        ##
@@ -133,13 +114,9 @@ EDITOR=vi
 ###########################################
 # -- Sourcing
 
-# Alias definitions.
-#[[ -f ~/.aliases ]] && source ~/.aliases
-[[ -f ~/.debian ]] && source ~/.debian
+# Sourcing aliases file
+[[ -f ~/.aliases ]] && source ~/.aliases || [[ -f ~/.debian ]] && source ~/.debian
 
-# Enable Completion.
-[[ -f /etc/profile.d/bash_completion.sh ]] && source /etc/profile.d/bash_completion.sh
-###########################################
 # -- Shell [Bash] Options
 
 # chang dir without 'cd'.
