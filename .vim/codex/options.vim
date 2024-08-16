@@ -16,7 +16,7 @@ set relativenumber
 set fileencoding=utf-8
 set noswapfile
 set wildmode=longest,list,full  "enable autocompletion using ctrl+n
-set splitright splitbelow
+"set splitright splitbelow      "they are not fun any more,nothing better than default <(^.^)>
 set laststatus=2                "to dispaly the status_bar.
 set tabstop=4                   "set our tab size to 2 spaces
 set softtabstop=4
