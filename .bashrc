@@ -86,7 +86,7 @@ codexPs(){
     PS1="$(diagnostic) "
     PS1+="$(ownership) "
     PS1+="$(print_dir)"
-    [ -d .git ] && PS1+="$(git_prompt)" # Increase the speed
+    PS1+="$(git_prompt)" # Increase the speed
     PS1+="$(end)"
 }
 PROMPT_COMMAND=codexPs  #the PS1
