@@ -31,8 +31,8 @@ alias ls='exa --color=always --icons --git'
 alias l='ls -l'
 alias ll='ls -la'
 # -- exa does tree
-alias lt='ls -a --tree --level=2'
-alias llt='ls -al --tree --level=2'
+alias lt='ls -a --tree --level=2 --ignore-glob=.git'
+alias llt='ls -al --tree --level=2 --ignore-glob=.git'
 # -- or just use lsd, if you now how to change the user/group colors, lsd good in icons
 #alias ls='lsd'
 #alias l='lsd --long --git --header --blocks=permission,size,date,git,name'
