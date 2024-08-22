@@ -12,12 +12,26 @@
 
 # using array version to Boost the speed
 git_state() {
+    # is there any untracked file ?!
+    local untracked=$(git ls-files --other --directory --exclude-standard $(git rev-parse --show-toplevel) 2> /dev/null)
+    [[ -n ${untracked} ]] && untracked="\[\033[1;3;31m\]*\[\033[00m\]"
+
+    # is there any file staged(cached) ?!
+    local staged=$(git diff --staged --name-only 2> /dev/null)
+    [[ -n ${staged} ]] && staged="\[\033[1;3;33m\]!\[\033[00m\]"
+
     # remote name
     local remote_name=$(git remote --no-verbose 2> /dev/null)
-    [ -z $remote_name ] && printf "\[\033[3;36m\]\[\033[00m\]" && return
+    # Alignment -- for repos that without remote --
+    if [[ -z $remote_name ]] && [[ $untracked || $staged ]]
+    then
+        printf "\[\033[3;36m\]\[\033[00m\] ${untracked}${staged}" && return
+    elif [[ -z $remote_name ]]
+    then
+        printf "\[\033[3;36m\]\[\033[00m\]" && return
+    fi
 
-    # instead of recreating branch var, use that comes from 'git_prompt' as argument branch="$1".
-    # branch="$(git symbolic-ref --short HEAD 2> /dev/null)"
+    # receive the current branch name
     local branch="$1"
 
     # local's commits ahead/behind remote, let it to be an array for more efficiency.
@@ -39,7 +53,13 @@ git_state() {
         else
             cps="\[\033[1;38;5;208m\]${local_status[0]}  ${local_status[1]}\[\033[00m\]"
         fi
-        printf "$cps"
+        # Alignment
+        if [[ -n ${untracked} || -n ${staged} ]]
+        then
+            printf "${cps} ${untracked}${staged}"
+        else
+            printf "${cps}"
+        fi
     fi
     return
 }
@@ -76,17 +96,14 @@ print_dir(){
 }
 end(){
     printf " \[\033[1;91m\]\[\033[m\] "
-    #printf " \[\033[1;91m\] \[\033[m\]"
-    #printf " \[\033[1;97m\]\[\033[m\] "
-    #printf " \[\033[1;37m\]»\[\033[m\] "
 }
 
-#it works well!!
+# Building PS1
 codexPs(){
     PS1="$(diagnostic) "
     PS1+="$(ownership) "
     PS1+="$(print_dir)"
-    PS1+="$(git_prompt)" # Increase the speed
+    PS1+="$(git_prompt)"
     PS1+="$(end)"
 }
 PROMPT_COMMAND=codexPs  #the PS1
