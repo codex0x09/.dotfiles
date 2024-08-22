@@ -3,6 +3,7 @@
 .tmux/plugins
 .config/Alacritty
 .config/ranger
+.bin/temp/
 # -- files --#
 
 # -- exceptions --#
