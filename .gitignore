@@ -2,11 +2,12 @@
 .w3m/
 .tmux/plugins
 .config/Alacritty
-.vim/autoload/plugged
-.config/ranger/plugins/__pycache__
-.config/ranger/colorschemes/__pycache__
-.config/ranger/colorschemes/__pycache__
+.config/ranger
 # -- files --#
+
 # -- exceptions --#
 !.w3m/config
-
+!.config/ranger/commands.py # defines ranger commands
+!.config/ranger/rifle.conf  # defines how to launch files
+!.config/ranger/rc.conf     # ranger keybindings and settings
+!.config/ranger/scope.sh    # defines how to handle file previews
