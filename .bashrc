@@ -12,20 +12,24 @@
 
 # using array version to Boost the speed
 git_state() {
-    # is there any untracked file ?!
+    # is there any untracked file [ * ] ?!
     local untracked=$(git ls-files --other --directory --exclude-standard $(git rev-parse --show-toplevel) 2> /dev/null)
-    [[ -n ${untracked} ]] && untracked="\[\033[1;3;31m\]*\[\033[00m\]"
+    [[ -n ${untracked} ]] && untracked="\[\033[1;31m\]*\[\033[00m\]"
 
-    # is there any file staged(cached) ?!
+    # is there any modified file [ + ] ?!
+    local modified=$(git ls-files --modified $(git rev-parse --show-toplevel) 2> /dev/null)
+    [[ -n ${modified} ]] && modified="\[\033[1;33m\]+\[\033[00m\]"
+    
+    # is there any file staged(cached) [ ! ] ?!
     local staged=$(git diff --staged --name-only 2> /dev/null)
-    [[ -n ${staged} ]] && staged="\[\033[1;3;33m\]!\[\033[00m\]"
+    [[ -n ${staged} ]] && staged="\[\033[1;3;32m\]!\[\033[00m\]"
 
     # remote name
     local remote_name=$(git remote --no-verbose 2> /dev/null)
     # Alignment -- for repos that without remote --
-    if [[ -z $remote_name ]] && [[ $untracked || $staged ]]
+    if [[ -z $remote_name ]] && [[ -n ${untracked} || -n ${modified} || -n ${staged} ]]
     then
-        printf "\[\033[3;36m\]\[\033[00m\] ${untracked}${staged}" && return
+        printf "\[\033[3;36m\]\[\033[00m\] ${untracked}${modified}${staged}" && return
     elif [[ -z $remote_name ]]
     then
         printf "\[\033[3;36m\]\[\033[00m\]" && return
@@ -54,9 +58,9 @@ git_state() {
             cps="\[\033[1;38;5;208m\]${local_status[0]}  ${local_status[1]}\[\033[00m\]"
         fi
         # Alignment
-        if [[ -n ${untracked} || -n ${staged} ]]
+        if [[ -n ${untracked} || -n ${modified} || -n ${staged} ]]
         then
-            printf "${cps} ${untracked}${staged}"
+            printf "${cps} ${untracked}${modified}${staged}"
         else
             printf "${cps}"
         fi
@@ -96,6 +100,7 @@ print_dir(){
 }
 end(){
     printf " \[\033[1;91m\]\[\033[m\] "
+
 }
 
 # Building PS1
