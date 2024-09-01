@@ -55,7 +55,7 @@ bold_italic = { family = "JetBrainsMono NF", style = "Bold Italic" }
 
 [colors]
 [colors.primary]
-foreground = "#00ffff" #"#d0d0d0"
+#foreground = "#00ffff" #"#d0d0d0"
 background = "#05050e"
 [colors.search]
 matches = {foreground = "#181818", background = "#ac4242"}
