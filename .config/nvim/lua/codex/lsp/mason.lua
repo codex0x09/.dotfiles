@@ -51,7 +51,7 @@ require("mason-tool-installer").setup({
 		"bashls",
 		"vimls",
 		"lua_ls",
-		"tsserver",
+		--[[ "tsserver", ]]
 		"jsonls",
 		"emmet-ls",
 		"html",
