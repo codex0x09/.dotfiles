@@ -38,10 +38,10 @@ let g:airline_theme = "deep_space"
 " Italics
 hi! Comment cterm=italic gui=italic
 " <<--
-hi! Search cterm=none ctermbg=202 ctermfg=233
 hi! CurSearch cterm=none ctermbg=9 ctermfg=232
 hi! cursorline cterm=none ctermbg=233  "17 "236
-hi! MatchParen cterm=reverse cterm=bold ctermfg=202 ctermbg=None gui=bold guifg=#ff6000 guibg=NONE 
+hi! Search cterm=none ctermbg=202 ctermfg=233 gui=bold guibg=#ff9000 guifg=#222222
+hi! MatchParen cterm=reverse cterm=bold ctermfg=202 ctermbg=None gui=bold guifg=#ff0000 guibg=NONE
 hi! Special cterm=bold ctermfg=202 ctermbg=None
 hi! VertSplit cterm=reverse ctermfg=236 ctermbg=234 guifg=#303030 guibg=#1c1c1c
 hi! EndOfBuffer ctermbg=None
