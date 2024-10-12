@@ -26,6 +26,8 @@ alias cat='batcat --italic-text=always --pager "less -FX"'
 alias cp='cp -uv'
 # -- (e)grep
 alias grep='egrep -i --color=auto'
+# -- tree
+alias t='tree -L 1 -C'
 # -- exa -- see --help
 alias ls='exa --color=always --icons --git'
 alias l='ls -l'
