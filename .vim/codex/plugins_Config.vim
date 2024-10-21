@@ -38,7 +38,6 @@ nnoremap <leader>e :NERDTreeToggle<CR>
 "  .=====================.
 "{{{   TagBar :
 
-nmap <leader>[ :TagbarToggle<CR>                                              
-set completeopt-=preview " For No Preniew                                
+nnoremap <leader>[ :TagbarToggle<CR>
 "####################################################################
 "}}}
