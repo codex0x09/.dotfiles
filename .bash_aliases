@@ -42,9 +42,9 @@ alias llt='ls -al --tree --level=2 --ignore-glob=.git'
 # -- lsd tree version
 #alias lt='lsd --tree --depth=2'
 #alias llt='ll --tree --depth=2'
-###################
-##  Web Browser  ##
-###################
+####################
+##  Web Browsers  ##
+####################
 xfire(){
     firefox.exe --new-tab file://///$(pwd)/$1
     #
@@ -56,3 +56,5 @@ xfire(){
     # complish this task when migration complitly to linux "windows just SUCKS and GARBAGE"
 }
 export -f xfire
+# -- w3m
+alias web='w3m duckduckgo.com'
