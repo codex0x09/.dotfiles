@@ -92,8 +92,8 @@ keymap("n", "jf", ":<C-f>", opts)
 keymap("n", "<leader>p", "<cmd>set spell!<cr>", opts)
 
 -- Remove Cursorline/ Set Cursorline
-keymap("n", "<leader><Space>", "<Cmd>set nocursorline<CR>", opts)
-keymap("n", "<leader>c", "<Cmd>set cursorline<CR>", opts)
+-- keymap("n", "<leader><Space>", "<Cmd>set nocursorline<CR>", opts)
+keymap("n", "<leader>c", "<Cmd>set cursorline!<CR>", opts)
 
 -- Split Windows
 keymap("n", "<leader>s", ":sp<CR>", opts)

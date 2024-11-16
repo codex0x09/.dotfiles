@@ -26,8 +26,8 @@ nnoremap <leader>i gg=G <C-o><C-o>
 "====================
 
 "Enable/Disable cursorLine
-nnoremap <leader>c <cmd>set cursorline<cr>
-nnoremap <leader><space> <cmd>set nocursorline<cr>
+nnoremap <leader>c <cmd>set cursorline!<cr>
+"nnoremap <leader><space> <cmd>set nocursorline<cr>
 "====================
 "#  # Folding #  #
 "====================
